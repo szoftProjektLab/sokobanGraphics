@@ -93,14 +93,6 @@ public class GameFrame extends JFrame {
         };
         contentPane.add(labelGame, BorderLayout.CENTER);
         labelGame.setLayout(new GridLayout(1, 0, 0, 0));
-        try{
-            Thread.sleep(1000);
-        }
-        catch(Exception ej)
-        {
-
-        }
-        doReinvalidateRepaint();
     }
     public void doReinvalidateRepaint()
     {

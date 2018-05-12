@@ -92,15 +92,6 @@ public class MenuFrame extends JFrame{
                     g.StartGame("Maps/"+globalVariable+".txt");
                     activeGameFrame = new GameFrame();
                     activeGameFrame.setVisible(true);
-                    try {
-                        Thread.sleep(1000);
-                    }
-                    catch(Exception s)
-                    {
-
-                    }
-                    //labelGame.revalidate();
-                    //labelGame.repaint();
                     Game.getInstance().getRunning().DrawMap();
                 }
             }
