@@ -222,6 +222,11 @@ public class Game {
      */
     public void setRunning(Warehouse r){running = r; }
 
+    public Warehouse getRunning()
+    {
+        return running;
+    }
+
     /**
      * Játék befejezését biztosító folyamat
      */

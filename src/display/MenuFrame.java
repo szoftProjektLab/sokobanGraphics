@@ -1,5 +1,6 @@
 package display;
 import game.Game;
+import game.Warehouse;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -89,6 +90,8 @@ public class MenuFrame extends JFrame{
                 if (e.getActionCommand().equals("btnRemove")) {
                     Game g = Game.getInstance();
                     g.StartGame("Maps/"+globalVariable+".txt");
+                    activeGameFrame = new GameFrame();
+                    Game.getInstance().getRunning().DrawMap();
                 }
             }
         });
