@@ -2,7 +2,6 @@ package fields;
 
 import display.IDrawable;
 import things.Box;
-import things.Thing;
 
 public class Switch extends Field implements IDrawable {
 
@@ -30,7 +29,7 @@ public class Switch extends Field implements IDrawable {
     /**
      * A kapcsolóra érkező Box meghívja, kinyitja a hozzá tartozó lyukat.
      * @param b A rálépő Box
-     * @return
+     * @return 0
      */
     public int Interact(Box b) {
         if(hole!=null) {

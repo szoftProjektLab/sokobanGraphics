@@ -23,7 +23,7 @@ public abstract class Steppable {
      * Absztrakt
      * Leszármazott osztályban visszaadja abban az irányban lévő szomszédos mezőt
      * @param d Szomszéd iránya
-     * @return
+     * @return neighbours.get(d)
      */
     public abstract Field GetNeighbour(Direction d);
 
@@ -42,6 +42,7 @@ public abstract class Steppable {
      */
     public void SetThing(Thing t){ thing = t;}
 
+
     /**
      * Egy Player-t hozzácsatol az aktuális mezőhöz.
      * @param p A csatolandó Player(Thing)
@@ -50,8 +51,7 @@ public abstract class Steppable {
     public int Add(Player p){
         this.thing = p;
         p.SetField(this);
-        int tmp = Interact(p);
-        return tmp;
+        return Interact(p);
     }
 
     /**
@@ -62,8 +62,7 @@ public abstract class Steppable {
     public int Add(Box b){
         this.thing = b;
         b.SetField(this);
-        int tmp = Interact(b);
-        return tmp;
+        return Interact(b);
     }
 
     /**
@@ -74,27 +73,20 @@ public abstract class Steppable {
     public int Add(ColouredBox cb){
         this.thing = cb;
         cb.SetField(this);
-        int tmp = Interact(cb);
-        return tmp;
+        return Interact(cb);
     }
 
     /**
      * Az éppen rajta álló tárgyat eltávolítja a mezőről
      * @param b Box
      */
-    public void Remove(Box b){
-        this.thing = null;
-
-    }
+    public void Remove(Box b){ this.thing = null; }
 
     /**
      * Az éppen rajta álló tárgyat eltávolítja a mezőről
      * @param p Player
      */
-    public void Remove(Player p){
-        this.thing = null;
-
-    }
+    public void Remove(Player p){ this.thing = null; }
 
     /**
      * Itt nem csinál semmit,
@@ -128,7 +120,7 @@ public abstract class Steppable {
      * Leszármazott osztályban a mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
      * @param d A mozgás iránya
      * @param s A játékos maradék ereje
-     * @return
+     * @return tmp
      */
     public abstract int TryMove(Direction d, double s);
 
@@ -138,7 +130,7 @@ public abstract class Steppable {
      * @param d A mozgás iránya
      * @param t Az érkezni kívánó Thing
      * @param s A játékos maradék ereje
-     * @return
+     * @return tmp
      */
     public abstract int TryMove(Direction d, Thing t, double s);
 

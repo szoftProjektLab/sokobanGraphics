@@ -1,12 +1,11 @@
 package fields;
 
-import display.IDrawable;
 import enums.Direction;
 import things.Box;
 import things.Player;
 import things.Thing;
 
-public class Wall extends Field implements IDrawable {
+public class Wall extends Field {
 
     /**
      * A szomszédos mező a felőle érkező mozgás igényt ennek meghívásával jelzi.
@@ -14,7 +13,7 @@ public class Wall extends Field implements IDrawable {
      * @param d A mozgás iránya
      * @param t Az érkezni kívánó Thing
      * @param s A játékos maradék ereje
-     * @return
+     * @return tmp
      */
     @Override
     @SuppressWarnings("Duplicates")
@@ -34,26 +33,11 @@ public class Wall extends Field implements IDrawable {
         return tmp;
     }
 
-    public int Add(Player t){
-        this.thing = t;
-        t.SetField(this);
-        int tmp = Interact(t);
-        return tmp;
+    public int Add(Player p){
+        this.thing = p;
+        p.SetField(this);
+        return Interact(p);
     }
 
-    public int Add(Box t){ return 0;}
-
-    /**
-     *Objektum kirajzolása
-     * @param x sor
-     * @param y oszlop
-     */
-    @Override
-    public void Draw(int x, int y) {
-        String path="textures/Wall.jpg";
-
-        //Valahogy kirajzolni az ablakra
-
-
-    }
+    public int Add(Box b){ return 0;}
 }

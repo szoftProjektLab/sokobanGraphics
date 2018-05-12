@@ -35,11 +35,10 @@ public class Player extends Thing implements IDrawable {
      * hogy értesítse
      * @param d A mozgás iránya
      * @param t A használni kívánt mezőt elfogaló Thing
-     * @return
+     * @return t.Collide(d, this, s)
      */
     public int MakeCollision (Direction d, Thing t, double s){
-        int tmp = t.Collide(d, this, s);
-        return tmp;
+        return t.Collide(d, this, s);
     }
 
     /**
@@ -47,7 +46,7 @@ public class Player extends Thing implements IDrawable {
      * @param d A mozgás iránya
      * @param t Az érkező Box
      * @param s A játékos ereje
-     * @return
+     * @return tmp
      */
     public int Collide (Direction d, Box t, double s){
         int tmp = 0;
@@ -78,16 +77,20 @@ public class Player extends Thing implements IDrawable {
         tmp.TryMove(d, this, strength);
     }
 
+
+
     /**
      * Megöli a falnak tolt játékost, Wall paraméter esetén fut le ez a metódus
      * @param w A kapott fal, amire lépnie kéne.
      * @return 0
      */
-    //////////////////////////// Hiányos
+    //////////////////////////// Hiányos, mivan ha falnakmegy magától
     public int AcceptMove(Wall w){
         Die();
         return 0;
     }
+
+
 
     /**
      * Rálépteti a Player-t a kapott Field-re,
