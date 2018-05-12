@@ -85,7 +85,6 @@ public class GameFrame extends JFrame {
                         if(wh.getField(i,j).getThing()!=null) {
                             texture = thingTextures[i][j];
                             g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
-
                         }
                     }
                 }
@@ -118,9 +117,7 @@ public class GameFrame extends JFrame {
         this.y = y;
         this.globalVariable = path;
         texture = loadImage();
-
-        labelGame.revalidate();
-        labelGame.repaint();
+        fieldTextures[x][y] = texture;
     }
 
     public void SetTextureThing(int x, int y, String path)
@@ -129,9 +126,7 @@ public class GameFrame extends JFrame {
         this.y = y;
         this.globalVariable = path;
         texture = loadImage();
-
-        labelGame.revalidate();
-        labelGame.repaint();
+        thingTextures[x][y] = texture;
     }
 
     public void SetTextureField(int x, int y, String path, Colours c) {
@@ -155,6 +150,7 @@ public class GameFrame extends JFrame {
                 texture.setRGB(col, row, new Color(r_a, r_b, r_c).getRGB());
             }
         }
+        fieldTextures[x][y] = texture;
     }
 
 
@@ -178,7 +174,6 @@ public class GameFrame extends JFrame {
                     texture.setRGB(col, row, new Color(r_a, r_b, r_c).getRGB());
                 }
             }
-            labelGame.revalidate();
-            labelGame.repaint();
+            thingTextures[x][y] = texture;
     }
 }
