@@ -68,18 +68,20 @@ public class GameFrame extends JFrame {
                 //g.drawImage(texture,x,y,null);
                 Warehouse wh = Game.getInstance().getRunning();
 
+                int width = getWidth();
+                int height = getHeight();
+
+
                 for(int i=0;i<wh.getRow();i++){
                     for(int j=0;j<wh.getColumn();j++){
                         globalVariable = wh.getField(i,j).GetPath();
                         texture = loadImage();
-                        System.out.println(globalVariable);
 
-                        g.drawImage(texture, 60*j, 60*i,60*j+60, 60*i+60,0,0, 120, 120, null);
+                        g.drawImage(texture, (55*j)*getWidth()/574, (55*i)*getHeight()/539,(55*j+55)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
                         if(wh.getField(i,j).getThing()!=null) {
                             globalVariable = wh.getField(i, j).getThing().GetPath();
-                            System.out.println(globalVariable);
                             texture = loadImage();
-                            g.drawImage(texture, 60*j, 60*i,60*j+60, 60*i+60,0,0, 120, 120, null);
+                            g.drawImage(texture, (55*j)*getWidth()/574, (55*i)*getHeight()/539,(55*j+55)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
 
                         }
                     }
