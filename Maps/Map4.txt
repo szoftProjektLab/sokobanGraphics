@@ -2,14 +2,14 @@
 10
 
 W,W,W,W,W,W,W,W,W,W
-W, , ,C,J,C, , , ,W
-W, , ,S,J,S, , , ,W
-W, , , ,Q, , , , ,W
+W,F,F,C,J,C,F,F,F,W
+W,F,F,S,J,S,F,F,F,W
+W,F,F,F,Q,F,F,F,F,W
 W,C,J,Q,W,Q,J,J,J,W
-W, , , ,Q, , , , ,W
-W, , ,S,J,S, , , ,W
-W, , , ,J, , , , ,W
-W, , ,C,J,C, , ,,W
+W,F,F,F,Q,F,F,F,F,W
+W,F,F,S,J,S,F,F,F,W
+W,F,F,F,J,F,F,F,F,W
+W,F,F,C,J,C,F,F,F,W
 W,W,W,W,W,W,W,W,W,W
 
 n,n,n,n,n,n,n,n,n,n
