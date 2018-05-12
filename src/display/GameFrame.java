@@ -22,22 +22,20 @@ public class GameFrame extends JFrame {
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
 
-        JPanel panel = new JPanel();
-        contentPane.add(panel, BorderLayout.NORTH);
-        panel.setLayout(new BorderLayout(0, 0));
+        JPanel mainPanel = new JPanel();
+        contentPane.add(mainPanel, BorderLayout.NORTH);
+        mainPanel.setLayout(new BorderLayout(0, 0));
 
-        JLabel lblNewLabel = new JLabel("<html>Player 1<br/>Score</html>");
-        panel.add(lblNewLabel,BorderLayout.WEST);
-
-
-        JLabel lblNewLabel_3 = new JLabel("<html>Player 2<br/>Score</html>");
-        panel.add(lblNewLabel_3,BorderLayout.EAST);
-
-        JPanel panel_1 = new JPanel();
-        contentPane.add(panel_1, BorderLayout.CENTER);
-        panel_1.setLayout(new GridLayout(1, 0, 0, 0));
+        JLabel labelPlayer1 = new JLabel("<html>Player 1<br/>Score</html>");
+        mainPanel.add(labelPlayer1,BorderLayout.WEST);
 
 
+        JLabel labelPlayer2 = new JLabel("<html>Player 2<br/>Score</html>");
+        mainPanel.add(labelPlayer2,BorderLayout.EAST);
+
+        JPanel labelGame = new JPanel();
+        contentPane.add(labelGame, BorderLayout.CENTER);
+        labelGame.setLayout(new GridLayout(1, 0, 0, 0));
     }
 
 }
