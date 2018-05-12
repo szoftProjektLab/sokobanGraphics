@@ -131,10 +131,19 @@ public class Warehouse {
         }
     }
 
+    /**
+     *
+     * @return playerek száma
+     */
     public int getPlayerCount(){
         return playerCount;
     }
 
+    public void DrawMap(){
+        for(int i=0;i<getRow();i++){
+
+        }
+    }
     /**
      * Beállítja az összes szomszédját a mezőknek
      */
