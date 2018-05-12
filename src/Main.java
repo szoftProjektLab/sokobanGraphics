@@ -1,8 +1,5 @@
 import display.Colours;
-import enums.*;
-import fields.*;
-import game.*;
-import windows.*;
+import display.MenuFrame;
 import java.awt.EventQueue;
 import things.*;
 
