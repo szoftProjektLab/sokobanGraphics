@@ -105,7 +105,7 @@ public class MenuFrame extends JFrame{
         listScroller.setPreferredSize(new Dimension(250, 80));
 
         DefaultListModel<String> model = new DefaultListModel<>();
-        for (int i = 1; i < 100; i++)
+        for (int i = 1; i < 6; i++)
             model.addElement("Map"+i);
         list.setModel(model);
 

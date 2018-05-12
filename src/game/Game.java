@@ -150,6 +150,7 @@ public class Game {
                         case"D":
                             Box d = new Box();
                             d.setWarehouse(running);
+                            running.getField(curRow,curColumn).setEffect(0.5);
                             running.getField(curRow,curColumn).Add(d);
                             break;
                         //Színes láda létrehozása (a láda, amit ha a megfelelő helyre tolnak, ad pontot)
