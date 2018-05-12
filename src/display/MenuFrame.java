@@ -91,6 +91,7 @@ public class MenuFrame extends JFrame{
                     Game g = Game.getInstance();
                     g.StartGame("Maps/"+globalVariable+".txt");
                     activeGameFrame = new GameFrame();
+                    activeGameFrame.setVisible(true);
                     Game.getInstance().getRunning().DrawMap();
                 }
             }

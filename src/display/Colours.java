@@ -20,9 +20,9 @@ public class Colours {
      */
     public Colours(){
         Random rand = new Random();
-        Red = rand.nextInt()%256;
-        Green = rand.nextInt()%256;
-        Blue = rand.nextInt()%256;
+        Red = rand.nextInt(256)%256;
+        Green = rand.nextInt(256)%256;
+        Blue = rand.nextInt(256)%256;
     }
 
     /**
