@@ -1,9 +1,10 @@
 package things;
 
 import display.Colours;
+import display.IDrawable;
 import fields.Field;
 
-public class ColouredBox extends Box{
+public class ColouredBox extends Box implements IDrawable {
 
     private Colours colour;
     /**
@@ -39,6 +40,20 @@ public class ColouredBox extends Box{
         field.Remove(this);
         tmp = f.Add(this);
         return tmp;
+    }
+
+    /**
+     *Objektum kirajzolása
+     * @param x sor
+     * @param y oszlop
+     */
+    @Override
+    public void Draw(int x, int y) {
+        String path="textures/box.jpg";
+
+        //Valahogy kirajzolni az ablakra
+
+
     }
 
 

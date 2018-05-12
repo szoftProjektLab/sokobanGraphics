@@ -1,12 +1,13 @@
 package fields;
 
+import display.IDrawable;
 import enums.Direction;
 import things.Thing;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Field extends Steppable {
+public class Field extends Steppable implements IDrawable {
 
     /** A Field szomszédos Field-jei*/
     private Map<Direction, Field> neighbours;
@@ -106,6 +107,21 @@ public class Field extends Steppable {
      */
     public void setEffect(double effect) {
         this.effect = effect;
+    }
+
+
+    /**
+     *Objektum kirajzolása
+     * @param x sor
+     * @param y oszlop
+     */
+    @Override
+    public void Draw(int x, int y) {
+        String path="textures/Field2.jpg";
+
+        //Valahogy kirajzolni az ablakra
+
+
     }
 
 }

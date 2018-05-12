@@ -131,6 +131,10 @@ public class Warehouse {
         }
     }
 
+    public int getPlayerCount(){
+        return playerCount;
+    }
+
     /**
      * Beállítja az összes szomszédját a mezőknek
      */

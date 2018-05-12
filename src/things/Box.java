@@ -1,12 +1,13 @@
 package things;
 
+import display.IDrawable;
 import enums.Direction;
 import fields.Field;
 import fields.Hole;
 import fields.Switch;
 import fields.Wall;
 
-public class Box extends Thing {
+public class Box extends Thing implements IDrawable {
 
     /**
      * Ha a helyet változtató Thing új Field-jén áll egy Thing, ez hívja meg,
@@ -64,4 +65,18 @@ public class Box extends Thing {
      * @return 0
      */
     public int AcceptMove(Wall w){ return 0; }
+
+    /**
+     *Objektum kirajzolása
+     * @param x sor
+     * @param y oszlop
+     */
+    @Override
+    public void Draw(int x, int y) {
+        String path="textures/box.jpg";
+
+        //Valahogy kirajzolni az ablakra
+
+
+    }
 }

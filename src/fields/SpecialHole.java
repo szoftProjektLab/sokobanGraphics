@@ -1,9 +1,10 @@
 package fields;
 
+import display.IDrawable;
 import things.Player;
 import things.Box;
 
-public class SpecialHole extends Hole {
+public class SpecialHole extends Hole implements IDrawable {
 
     private boolean open;
 
@@ -36,5 +37,26 @@ public class SpecialHole extends Hole {
      * @param op
      */
     public void SetOpen(boolean op) { open=op; }
+
+    /**
+     *Objektum kirajzolása
+     * @param x sor
+     * @param y oszlop
+     */
+    @Override
+    public void Draw(int x, int y) {
+        String path="textures/Field2.jpg";
+        String path1="textures/Hole2.jpg";
+
+        if(open==false){
+
+        }else{
+
+        }
+
+        //Valahogy kirajzolni az ablakra
+
+
+    }
 
 }

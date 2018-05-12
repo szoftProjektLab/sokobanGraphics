@@ -1,15 +1,17 @@
 package things;
 
+import display.IDrawable;
 import enums.Direction;
 import fields.Field;
 import fields.Wall;
 
-public class Player extends Thing {
+public class Player extends Thing implements IDrawable {
 
     /** A játékos ponjai */
     private int points;
     /** A játékos ereje */
     private double strength;
+
 
     /**
      * Player paraméterezett konstrunktora
@@ -122,5 +124,24 @@ public class Player extends Thing {
      */
     public void PlaceOil(double effect){
         field.setEffect(effect);
+    }
+
+    /**
+     *Objektum kirajzolása
+     * @param x sor
+     * @param y oszlop
+     */
+    @Override
+    public void Draw(int x, int y) {
+        String path;
+        if(warehouse.getPlayerCount()==0){
+            path="textures/Worker1.png";
+        }
+        else path="textures/Worker2.png";
+
+
+        //Valahogy kirajzolni az ablakra
+
+
     }
 }

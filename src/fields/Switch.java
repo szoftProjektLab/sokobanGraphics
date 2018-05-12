@@ -1,12 +1,15 @@
 package fields;
 
+import display.IDrawable;
 import things.Box;
 import things.Thing;
 
-public class Switch extends Field {
+public class Switch extends Field implements IDrawable {
 
     /** A Switch-hez tartozó speciális lyuk */
     private SpecialHole hole;
+    /**active e a switch*/
+    private boolean active;
 
     /**
      * Beállítja a hozzá tartozó speciális lyukat.
@@ -21,6 +24,7 @@ public class Switch extends Field {
     public void Remove(Thing t){
         this.thing=null;
         hole.SetOpen(false);
+        active = false;
     }
 
     /**
@@ -31,8 +35,29 @@ public class Switch extends Field {
     public int Interact(Box b) {
         if(hole!=null) {
             hole.SetOpen(true);
+            active =true;
         }
         return 0;
+    }
+
+    /**
+     *Objektum kirajzolása
+     * @param x sor
+     * @param y oszlop
+     */
+    @Override
+    public void Draw(int x, int y) {
+        String path="textures/Switchclosed.jpg";
+        String path1="textures/Switchopen.jpg";
+
+        if(active==true){
+
+        }else{
+
+        }
+        //Valahogy kirajzolni az ablakra
+
+
     }
 
 }

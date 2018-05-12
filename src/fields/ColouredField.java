@@ -1,9 +1,10 @@
 package fields;
 
 import display.Colours;
+import display.IDrawable;
 import things.ColouredBox;
 
-public class ColouredField extends Field {
+public class ColouredField extends Field implements IDrawable {
 
     /** A színe */
     private Colours colour;
@@ -53,4 +54,17 @@ public class ColouredField extends Field {
         return tmp;
     }
 
+    /**
+     *Objektum kirajzolása
+     * @param x sor
+     * @param y oszlop
+     */
+    @Override
+    public void Draw(int x, int y) {
+        String path="textures/Field2.jpg";
+
+        //Valahogy kirajzolni az ablakra
+
+
+    }
 }
