@@ -7,7 +7,7 @@ import things.Box;
 
 public class SpecialHole extends Hole implements IDrawable {
 
-    private boolean open;
+    private boolean open = false;
 
     /**
      * A rálépő Box meghívja, ha nyitva van, megsemmisíti.
