@@ -40,11 +40,6 @@ public class Switch extends Field implements IDrawable {
         return 0;
     }
 
-    public String GetPath()
-    {
-        return "textures/Switchclosed.jpg";
-    }
-
     /**
      *Objektum kirajzolása
      * @param x sor

@@ -43,12 +43,6 @@ public class Wall extends Field implements IDrawable {
 
     public int Add(Box b){ return 0;}
 
-
-    public String GetPath()
-    {
-        return "textures/Wall.jpg";
-    }
-
     /**
      *Objektum kirajzolása
      * @param x sor

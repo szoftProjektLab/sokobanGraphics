@@ -90,11 +90,6 @@ public class Field extends Steppable implements IDrawable {
         return this.effect;
     }
 
-    public String GetPath()
-    {
-        return "textures/Field2.jpg";
-    }
-
     /**
      *Objektum kirajzolása
      * @param x sor
