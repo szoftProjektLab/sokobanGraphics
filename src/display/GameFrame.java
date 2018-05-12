@@ -20,7 +20,10 @@ public class GameFrame extends JFrame {
     private BufferedImage texture = null;
     private JPanel mainPanel;
     private JPanel labelGame;
-    int x, y;
+    private BufferedImage thingTextures[][];
+    private BufferedImage fieldTextures[][];
+
+    private int x, y;
 
 
     private BufferedImage loadImage(){
@@ -45,6 +48,10 @@ public class GameFrame extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
+
+        Warehouse wh = Game.getInstance().getRunning();
+        thingTextures = new BufferedImage[wh.getRow()][wh.getColumn()];
+        fieldTextures = new BufferedImage[wh.getRow()][wh.getColumn()];
 
         mainPanel = new JPanel();
         contentPane.add(mainPanel, BorderLayout.NORTH);
@@ -72,13 +79,11 @@ public class GameFrame extends JFrame {
 
                 for(int i=0;i<wh.getRow();i++){
                     for(int j=0;j<wh.getColumn();j++){
-                        globalVariable = wh.getField(i,j).GetPath();
-                        texture = loadImage();
+                        texture = fieldTextures[i][j];
 
                         g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
                         if(wh.getField(i,j).getThing()!=null) {
-                            globalVariable = wh.getField(i, j).getThing().GetPath();
-                            texture = loadImage();
+                            texture = thingTextures[i][j];
                             g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
 
                         }
@@ -107,7 +112,7 @@ public class GameFrame extends JFrame {
         labelGame.repaint();
     }
 
-    public void SetTexture(int x, int y, String path)
+    public void SetTextureField(int x, int y, String path)
     {
         this.x = x;
         this.y = y;
@@ -118,8 +123,18 @@ public class GameFrame extends JFrame {
         labelGame.repaint();
     }
 
-    public void SetTexture(int x, int y, String path, Colours c)
+    public void SetTextureThing(int x, int y, String path)
     {
+        this.x = x;
+        this.y = y;
+        this.globalVariable = path;
+        texture = loadImage();
+
+        labelGame.revalidate();
+        labelGame.repaint();
+    }
+
+    public void SetTextureField(int x, int y, String path, Colours c) {
         this.x = x;
         this.y = y;
         this.globalVariable = path;
@@ -132,14 +147,38 @@ public class GameFrame extends JFrame {
                 int g = color.getGreen();
                 int b = color.getBlue();
 
-                int r_a = r * c.getRed()/255;
-                int r_b = g * c.getGreen()/255;
-                int r_c = b * c.getBlue()/255;
+                int r_a = r * c.getRed() / 255;
+                int r_b = g * c.getGreen() / 255;
+                int r_c = b * c.getBlue() / 255;
+
 
                 texture.setRGB(col, row, new Color(r_a, r_b, r_c).getRGB());
             }
         }
-        labelGame.revalidate();
-        labelGame.repaint();
+    }
+
+
+        public void SetTextureThing(int x, int y, String path, Colours c) {
+            this.x = x;
+            this.y = y;
+            this.globalVariable = path;
+            texture = loadImage();
+
+            for (int col = 0; col < texture.getWidth(); col++) {
+                for (int row = 0; row < texture.getHeight(); row++) {
+                    Color color = new Color(texture.getRGB(col, row));
+                    int r = color.getRed();
+                    int g = color.getGreen();
+                    int b = color.getBlue();
+
+                    int r_a = r * c.getRed() / 255;
+                    int r_b = g * c.getGreen() / 255;
+                    int r_c = b * c.getBlue() / 255;
+
+                    texture.setRGB(col, row, new Color(r_a, r_b, r_c).getRGB());
+                }
+            }
+            labelGame.revalidate();
+            labelGame.repaint();
     }
 }
