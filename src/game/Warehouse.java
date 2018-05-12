@@ -149,6 +149,7 @@ public class Warehouse {
                 if(fields[i][j].getThing()!=null)fields[i][j].getThing().Draw(i,j);
             }
         }
+        MenuFrame.getActiveGameFrame().doReinvalidateRepaint();
     }
     /**
      * Beállítja az összes szomszédját a mezőknek
