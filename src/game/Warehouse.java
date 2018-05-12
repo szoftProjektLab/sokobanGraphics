@@ -146,8 +146,6 @@ public class Warehouse {
         for(int i=0;i<getRow();i++){
             for(int j=0;j<getColumn();j++){
                 fields[i][j].Draw(60*i,60*j);
-                if(fields[i][j].getEffect()==0.5&&MenuFrame.getActiveGameFrame()!=null)   MenuFrame.getActiveGameFrame().SetTextureField(i,j,path);
-                if(fields[i][j].getEffect()==1.5&&MenuFrame.getActiveGameFrame()!=null)   MenuFrame.getActiveGameFrame().SetTextureField(i,j,path1);
                 if(fields[i][j].getThing()!=null)fields[i][j].getThing().Draw(i,j);
             }
         }
