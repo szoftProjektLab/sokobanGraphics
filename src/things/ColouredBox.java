@@ -56,7 +56,7 @@ public class ColouredBox extends Box implements IDrawable {
     @Override
     public void Draw(int x, int y) {
         String path="textures/box.jpg";
-        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path,colour);
+        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureThing(x,y,path,colour);
     }
 
 
