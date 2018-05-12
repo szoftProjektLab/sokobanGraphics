@@ -131,17 +131,6 @@ public class Player extends Thing implements IDrawable {
         field.setEffect(effect);
     }
 
-
-    public String GetPath()
-    {
-        String path = null;
-        if(id==1){
-            path="textures/Worker1.png";
-        }
-        else if(id==2) path="textures/Worker2.png";
-        return path;
-    }
-
     /**
      *Objektum kirajzolása
      * @param x sor
