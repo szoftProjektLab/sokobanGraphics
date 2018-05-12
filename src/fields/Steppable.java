@@ -49,7 +49,6 @@ public abstract class Steppable {
      * @return 0
      */
     public int Add(Player p){
-        System.out.println(p.toString());
         this.thing = p;
         p.SetField(this);
         return Interact(p);

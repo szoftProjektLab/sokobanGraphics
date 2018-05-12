@@ -52,7 +52,6 @@ public class Field extends Steppable implements IDrawable {
      * @return tmp
      */
     public int TryMove(Direction d, double s){
-        System.out.println("box"+getThing().toString());
         return neighbours.get(d).TryMove(d, getThing(), effect);
     }
 
@@ -67,15 +66,12 @@ public class Field extends Steppable implements IDrawable {
     public int TryMove(Direction d, Thing t, double s){
         int tmp =0;
         if(s < effect) {
-            System.out.println("nincs erő");
             return 0;
         }
         s-=effect;
         if (getThing()==null){
-            System.out.println("nincs semmi");
             tmp = t.AcceptMove(this);
         } else{
-            System.out.println("van valami");
             tmp = t.MakeCollision(d, getThing(), s);
             if(getThing() == null)
                 tmp = t.AcceptMove(this);
