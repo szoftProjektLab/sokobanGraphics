@@ -86,10 +86,22 @@ public class GameFrame extends JFrame {
         this.y = y;
         this.globalVariable = path;
         texture = loadImage();
-        //texture.set
 
+        for (int col = 0; col < texture.getWidth(); col++) {
+            for (int row = 0; row < texture.getHeight(); row++) {
+                Color color = new Color(texture.getRGB(col, row));
+                int r = color.getRed();
+                int g = color.getGreen();
+                int b = color.getBlue();
+
+                int r_a = r * c.getRed()/255;
+                int r_b = g * c.getGreen()/255;
+                int r_c = b * c.getBlue()/255;
+
+                texture.setRGB(col, row, new Color(r_a, r_b, r_c).getRGB());
+            }
+        }
         labelGame.revalidate();
         labelGame.repaint();
     }
-
 }
