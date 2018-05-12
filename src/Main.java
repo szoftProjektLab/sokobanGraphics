@@ -1,16 +1,15 @@
-import enums.Direction;
-import fields.Field;
-import fields.Hole;
-import fields.Wall;
-import things.Player;
-import game.Warehouse;
+import display.Colours;
+import enums.*;
+import fields.*;
+import game.*;
+import things.*;
 
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Warehouse w = new Warehouse();
+        /*Warehouse w = new Warehouse();
 
         Field f1 = new Field();
         Field f2 = new Wall();
@@ -39,7 +38,17 @@ public class Main {
         f12.Add(p12);
         p11.StartMove(Direction.Right);
 
-        System.out.println("\n");
+        System.out.println("\n");*/
+
+        Box b= new Box();
+        ColouredBox cb1=new ColouredBox();
+        ColouredBox cb2=new ColouredBox();
+        Colours color1=new Colours();
+        Colours color2=new Colours();
+        cb1.SetColour(color1);
+        cb2.SetColour(color2);
+        if(cb1.GetColour()==cb2.GetColour()) System.out.println("True");
+        else System.out.println("False");
 
         //Falra playert tol???
 
