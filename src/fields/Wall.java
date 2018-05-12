@@ -13,7 +13,7 @@ public class Wall extends Field {
      * @param d A mozgás iránya
      * @param t Az érkezni kívánó Thing
      * @param s A játékos maradék ereje
-     * @return
+     * @return tmp
      */
     @Override
     @SuppressWarnings("Duplicates")
@@ -33,11 +33,10 @@ public class Wall extends Field {
         return tmp;
     }
 
-    public int Add(Player t){
-        this.thing = t;
-        t.SetField(this);
-        int tmp = Interact(t);
-        return tmp;
+    public int Add(Player p){
+        this.thing = p;
+        p.SetField(this);
+        return Interact(p);
     }
 
     public int Add(Box t){ return 0;}

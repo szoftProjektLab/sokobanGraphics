@@ -20,7 +20,7 @@ public abstract class Thing {
      * hogy értesítse
      * @param d A mozgás iránya
      * @param t A használni kívánt mezőt elfogaló Thing
-     * @return
+     * @return tmp
      */
     public abstract int MakeCollision (Direction d, Thing t, double s);
 
@@ -36,7 +36,7 @@ public abstract class Thing {
     /**
      * Végrehajtja a léptetést. A használni kívánt szabad mező hívja
      * @param f az új mező
-     * @return
+     * @return tmp
      */
     public abstract int AcceptMove(Field f);
 
@@ -54,7 +54,7 @@ public abstract class Thing {
 
     /**
      * Beállítja amelyik Field-en áll
-     * @param f
+     * @param f Bellítandó mező.
      */
     public void SetField(Steppable f)
     {

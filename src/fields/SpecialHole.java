@@ -33,7 +33,7 @@ public class SpecialHole extends Hole {
 
     /**
      * Beállítja, hogy nyitva van-e a lyuk
-     * @param op
+     * @param op Beállítandó állás.
      */
     public void SetOpen(boolean op) { open=op; }
 

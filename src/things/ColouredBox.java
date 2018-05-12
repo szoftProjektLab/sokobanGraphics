@@ -17,13 +17,13 @@ public class ColouredBox extends Box{
 
     /**
      * A színesdoboz (ezzel kap a játékost pontot, ha a megfelelő helyre léptetik) színét beállító függvény
-     * @param c
+     * @param c Beállítandó szín
      */
     public void SetColour(Colours c){ colour = c;}
 
     /**
      * A színesdoboz (ezzel kap a játékost pontot, ha a megfelelő helyre léptetik) színét visszadó függvény
-     * @param c
+     * @return colour
      */
     public Colours GetColour(){ return colour;}
 

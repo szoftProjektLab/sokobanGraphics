@@ -1,7 +1,6 @@
 package fields;
 
 import things.Box;
-import things.Thing;
 
 public class Switch extends Field {
 
@@ -26,7 +25,7 @@ public class Switch extends Field {
     /**
      * A kapcsolóra érkező Box meghívja, kinyitja a hozzá tartozó lyukat.
      * @param b A rálépő Box
-     * @return
+     * @return 0
      */
     public int Interact(Box b) {
         if(hole!=null) {
