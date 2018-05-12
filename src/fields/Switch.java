@@ -51,9 +51,9 @@ public class Switch extends Field implements IDrawable {
         String path1="textures/Switchopen.jpg";
 
         if(active==true){
-            if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureField(x,y,path);
-        }else{
             if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureField(x,y,path1);
+        }else{
+            if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureField(x,y,path);
         }
 
     }
