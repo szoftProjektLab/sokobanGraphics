@@ -2,25 +2,31 @@
 10
 
 W,W,W,W,W,W,W,W,W,W
-W, , , , , , , , ,W
-W, , , , , , , , ,W
-W, , , , , , , , ,W
-W, , , , , , , , ,W
-W, , , , , , , , ,W
-W, , , , , , , , ,W
-W, , , , , , , , ,W
-W, , , , , , , , ,W
+W,C,Q,F,F,F,F,Q,C,W
+W,Q,J,F,F,F,F,J,Q,W
+W,F,F,F,F,F,F,F,F,W
+W,F,F,F,F,F,F,F,F,W
+W,F,F,F,F,F,F,F,F,W
+W,F,F,F,F,F,F,F,F,W
+W,F,F,F,J,F,F,F,F,W
+W,F,S,S,C,S,S,F,F,W
 W,W,W,W,W,W,W,W,W,W
 
 n,n,n,n,n,n,n,n,n,n
 n,n,n,n,n,n,n,n,n,n
+n,n,n,n,D,n,n,n,n,n
+n,n,D,n,K,n,n,D,n,n
+n,n,D,n,K,n,n,D,n,n
+n,n,D,n,K,n,n,D,n,n
 n,n,n,n,n,n,n,n,n,n
-n,n,n,n,n,n,n,n,n,n
-n,n,n,n,n,n,n,n,n,n
-n,n,n,n,n,n,n,n,n,n
-n,n,n,n,n,n,n,n,n,n
-n,n,n,n,n,n,n,n,n,n
-n,n,n,n,n,n,n,n,n,n
+n,n,n,D,n,n,D,n,n,n
+n,A,n,n,n,n,n,n,B,n
 n,n,n,n,n,n,n,n,n,n
 
-parosit
+C;1,1;3,4
+C;1,8;3,5
+C;8,4;3,6
+S;8,2;1,2
+S;8,3;2,1
+S;8,5;2,8
+S;8,6;1,7
