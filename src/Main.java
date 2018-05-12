@@ -11,8 +11,9 @@ public class Main {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    MenuFrame window = new MenuFrame();
-                    window.setVisible(true);
+                        MenuFrame window = new MenuFrame();
+                        window.setVisible(true);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
