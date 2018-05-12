@@ -77,11 +77,11 @@ public class GameFrame extends JFrame {
                         globalVariable = wh.getField(i,j).GetPath();
                         texture = loadImage();
 
-                        g.drawImage(texture, (55*j)*getWidth()/574, (55*i)*getHeight()/539,(55*j+55)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
+                        g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
                         if(wh.getField(i,j).getThing()!=null) {
                             globalVariable = wh.getField(i, j).getThing().GetPath();
                             texture = loadImage();
-                            g.drawImage(texture, (55*j)*getWidth()/574, (55*i)*getHeight()/539,(55*j+55)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
+                            g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
 
                         }
                     }
