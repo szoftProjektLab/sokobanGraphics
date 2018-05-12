@@ -2,6 +2,7 @@ package fields;
 
 import display.Colours;
 import things.ColouredBox;
+import things.Box;
 import things.Thing;
 
 public class ColouredField extends Field {
@@ -36,23 +37,22 @@ public class ColouredField extends Field {
      * Beállítja a saját és a hozzá tartozó színes doboz színét.
      */
     public void InitColour(){
-        // Skeleton.getInstance.Call(this, box,"SetColour");
         box.SetColour(colour);
     }
 
     /**
      * Ha színes láda kerül rá, ellenőrzi, hogy a hozzá tartozó áll e rajta,
      * ha igen, pontot ad és kitörli.
-     * @param t Rajta álló tárgy
-     * @return pont
+     * @param b Rajta álló Box
+     * @return tmp
      */
-    public int Interact(Thing t){
+    public int Interact(Box b){
         int tmp=0;
-        if (thing==box){
+        if (b==box){
             tmp=1;
             thing.Die();
         }
-
         return tmp;
     }
+
 }

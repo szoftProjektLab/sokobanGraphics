@@ -8,8 +8,11 @@ import java.util.Map;
 
 public class Field extends Steppable {
 
+    /** A Field szomszédos Field-jei*/
     private Map<Direction, Field> neighbours;
+    /** A Field-en lévő Thing*/
     protected Thing thing;
+    /** A Field-en aktív effekt*/
     protected double effect;
 
     /**

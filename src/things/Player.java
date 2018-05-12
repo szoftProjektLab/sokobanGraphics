@@ -9,13 +9,18 @@ public class Player extends Thing {
 
     /** A játékos ponjai */
     private int points;
+    /** A játékos ereje */
     private double strength;
 
-    public Player()
-    {
+    /**
+     * Player paraméterezett konstrunktora
+     * @param s A beallítandó strength-je a játékosnak
+     */
+    public Player(double s) {
         points = 0;
-        strength = 3;
+        strength = s;
     }
+
     /**
      * A kapott értékkel növeli a Player pontszámának értékét.
      * @param points hozzá adandó pontok száma
@@ -39,7 +44,7 @@ public class Player extends Thing {
     /**
      * Ütközeti a Player-t és a Box-ot. Box tolja a Playert.
      * @param d A mozgás iránya
-     * @param t Az érkező Box, vagy Player
+     * @param t Az érkező Box
      * @param s A játékos ereje
      * @return
      */
@@ -49,8 +54,15 @@ public class Player extends Thing {
         return tmp;
     }
 
+    /**
+     * Ütközeti a Player-t és egy másik Player-t, amely során nem törénik semmi,
+     * mert nem tudják egymást tolni.
+     * @param d A mozgás iránya
+     * @param t Az érkező Player(Thing)
+     * @param s A játékos ereje
+     * @return
+     */
     public int Collide (Direction d, Player t, double s){
-        //System.out.println("Player: Collide player"); //OK
         return 0;
     }
 
@@ -62,33 +74,30 @@ public class Player extends Thing {
      */
     public void StartMove(Direction d){
         Field tmp = field.GetNeighbour(d);
-        /*
-        if (tmp instanceof Wall){ //5.3.8 OK
-            //fal
-        }
-        else
-        */
-            tmp.TryMove(d, this, strength);
+        tmp.TryMove(d, this, strength);
     }
 
     /**
-     * Nem csinál semmit
+     * Megöli a falnak tolt játékost, Wall paraméter esetén fut le ez a metódus
      * @param w A kapott fal, amire lépnie kéne.
      * @return 0
      */
-
+    //////////////////////////// Hiányos
     public int AcceptMove(Wall w){
-        System.out.println("PlayerWallAcceptmove");
-        //Die();
+        Die();
         return 0;
     }
 
-    public int AcceptMove(Field f){ //Field, Switch, Hole ra ez
+    /**
+     * Rálépteti a Player-t a kapott Field-re,
+     * (Field. Switch, Hole paraméter esetén fut le ez a metódus)
+     * @param f A kapott Field, amire lépnie kéne.
+     * @return tmp A Field a ráhelyezett Player-el.
+     */
+    public int AcceptMove(Field f){
         int tmp = 0;
-
         field.Remove(this);
         tmp = f.Add(this);
-        System.out.println("PlayerFieldAcceptmove");
         return tmp;
     }
 
@@ -98,9 +107,8 @@ public class Player extends Thing {
      * a játékosok számát csökkenti eggyel.
      */
     public void Die(){
-       //warehouse.PDecrease(); /////////////////////////////////////////////////////Ez kell
+       warehouse.PDecrease();
         field.Remove(this);
-        System.out.println("PlayerDie");
     }
 
     /**

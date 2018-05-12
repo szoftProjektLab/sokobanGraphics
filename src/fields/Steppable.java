@@ -7,6 +7,7 @@ import things.Thing;
 
 public abstract class Steppable {
 
+    /** A leszármazotton lévő Thing*/
     protected Thing thing;
 
     /**
@@ -30,17 +31,22 @@ public abstract class Steppable {
     public abstract Thing getThing();
 
     /**
-     * Egy tárgyat hozzácsatol az aktuális mezőhöz.
-     * @param t A csatolandó tárgy
+     * Egy Player-t hozzácsatol az aktuális mezőhöz.
+     * @param t A csatolandó Player(Thing)
      * @return 0
      */
-
     public int Add(Player t){
         this.thing = t;
         t.SetField(this);
         int tmp = Interact(t);
         return tmp;
     }
+
+    /**
+     * Egy Box-ot hozzácsatol az aktuális mezőhöz.
+     * @param t A csatolandó Box(Thing)
+     * @return 0
+     */
     public int Add(Box t){
         this.thing = t;
         t.SetField(this);
@@ -54,19 +60,20 @@ public abstract class Steppable {
     public abstract void Remove(Thing t);
 
     /**
-     * Virtuális függvény, itt nem csinál semmit
-     * @param p
-     * @return
+     * Itt nem csinál semmit,
+     * a leszármazottak felülírják ha használni akarják
+     * @param p Player
+     * @return 0
      */
+    public int Interact(Player p){ return 0; }
 
-    public int Interact(Player p){
-        System.out.println("PlayerInteract");
-        return 0;
-    }
-
-    public int Interact(Box b){
-        System.out.println("BoxInteract");
-        return 0;}
+    /**
+     * Itt nem csinál semmit,
+     * a leszármazottak felülírják ha használni akarják
+     * @param b Box
+     * @return 0
+     */
+    public int Interact(Box b){ return 0; }
 
 
     /**

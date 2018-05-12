@@ -45,29 +45,16 @@ public class Box extends Thing {
         field.Remove(this);
     }
 
-
+    /**
+     * Rálépteti a Box-ot a kapott Field-re,
+     * (Field. Switch, Hole paraméter esetén fut le ez a metódus)
+     * @param f A kapott Field, amire lépnie kéne.
+     * @return tmp A Field a ráhelyezett Box-al.
+     */
     public int AcceptMove(Field f){
         int tmp = 0;
-
         field.Remove(this);
         tmp = f.Add(this);
-
-        return tmp;
-    }
-    public int AcceptMove(Hole f){
-        int tmp = 0;
-
-        field.Remove(this);
-        tmp = f.Add(this);
-
-        return tmp;
-    }
-    public int AcceptMove(Switch f){
-        int tmp = 0;
-
-        field.Remove(this);
-        tmp = f.Add(this);
-
         return tmp;
     }
 
@@ -76,8 +63,5 @@ public class Box extends Thing {
      * @param w A kapott fal, amire lépnie kéne.
      * @return 0
      */
-    public int AcceptMove(Wall w){
-        System.out.println("wall accept");
-        return 0;
-    }
+    public int AcceptMove(Wall w){ return 0; }
 }
