@@ -19,9 +19,9 @@ public class Switch extends Field implements IDrawable {
 
     /**
      * Ha egy doboz eltávolítódik a kapcsolóról, a hozzá tartozó lyuk becsukódik.
-     * @param t A róla távozó tárgy
+     * @param b A róla távozó tárgy
      */
-    public void Remove(Thing t){
+    public void Remove(Box b){
         this.thing=null;
         hole.SetOpen(false);
         active = false;

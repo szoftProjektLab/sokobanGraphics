@@ -28,41 +28,73 @@ public abstract class Steppable {
     public abstract Field GetNeighbour(Direction d);
 
     /**
-     * Absztrakt
-     * Leszármazott osztályban visszaadja a jelenleg eltárolt, rajta lévő tárgy referenciáját
-     * @return
+     * Visszaadja a jelenleg eltárolt, rajta lévő tárgy referenciáját
+     * @return thing
      */
-    public abstract Thing getThing();
+    public Thing getThing()
+    {
+        return thing;
+    }
+
+    /**
+     * Beállítja a rajta lévő tárgy referenciáját
+     * @param t
+     */
+    public void SetThing(Thing t){ thing = t;}
 
     /**
      * Egy Player-t hozzácsatol az aktuális mezőhöz.
-     * @param t A csatolandó Player(Thing)
+     * @param p A csatolandó Player(Thing)
      * @return 0
      */
-    public int Add(Player t){
-        this.thing = t;
-        t.SetField(this);
-        int tmp = Interact(t);
+    public int Add(Player p){
+        this.thing = p;
+        p.SetField(this);
+        int tmp = Interact(p);
         return tmp;
     }
 
     /**
      * Egy Box-ot hozzácsatol az aktuális mezőhöz.
-     * @param t A csatolandó Box(Thing)
+     * @param b A csatolandó Box(Thing)
      * @return 0
      */
-    public int Add(Box t){
-        this.thing = t;
-        t.SetField(this);
-        int tmp = Interact(t);
+    public int Add(Box b){
+        this.thing = b;
+        b.SetField(this);
+        int tmp = Interact(b);
         return tmp;
     }
 
     /**
-     * Absztrakt
-     * Leszármazott osztályban az éppen rajta álló tárgyat eltávolítja a mezőről
+     * Egy ColouredBox-ot hozzácsatol az aktuális mezőhöz.
+     * @param cb A csatolandó Box(Thing)
+     * @return 0
      */
-    public abstract void Remove(Thing t);
+    public int Add(ColouredBox cb){
+        this.thing = cb;
+        cb.SetField(this);
+        int tmp = Interact(cb);
+        return tmp;
+    }
+
+    /**
+     * Az éppen rajta álló tárgyat eltávolítja a mezőről
+     * @param b Box
+     */
+    public void Remove(Box b){
+        this.thing = null;
+
+    }
+
+    /**
+     * Az éppen rajta álló tárgyat eltávolítja a mezőről
+     * @param p Player
+     */
+    public void Remove(Player p){
+        this.thing = null;
+
+    }
 
     /**
      * Itt nem csinál semmit,

@@ -2,7 +2,7 @@ package fields;
 
 import display.IDrawable;
 import enums.Direction;
-import things.Thing;
+import things.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,24 +46,6 @@ public class Field extends Steppable implements IDrawable {
     }
 
     /**
-     * Visszaadja a jelenleg eltárolt, rajta lévő tárgy referenciáját
-     * @return
-     */
-    public Thing getThing()
-    {
-        return thing;
-    }
-
-
-    /**
-     * Az éppen rajta álló tárgyat eltávolítja a mezőről
-     */
-    public void Remove(Thing t){
-        this.thing = null;
-
-    }
-
-    /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
      * @param d A mozgás iránya
      * @param s A játékos maradék ereje
@@ -82,6 +64,7 @@ public class Field extends Steppable implements IDrawable {
      * @param s A játékos maradék ereje
      * @return
      */
+    @SuppressWarnings("Duplicates")
     public int TryMove(Direction d, Thing t, double s){
         int tmp =0;
         if(s < effect) {
@@ -98,7 +81,7 @@ public class Field extends Steppable implements IDrawable {
         return tmp;
     }
 
-    public void SetThing(Thing t){ thing = t;}
+
 
 
     /**
