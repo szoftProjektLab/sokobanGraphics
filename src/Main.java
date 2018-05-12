@@ -1,4 +1,4 @@
-import display.Colours;
+import display.*;
 import display.MenuFrame;
 import java.awt.EventQueue;
 import things.*;

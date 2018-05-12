@@ -112,7 +112,7 @@ public class Player extends Thing implements IDrawable {
      */
     public void Die(){
        warehouse.PDecrease();
-        field.Remove(this);
+       field.Remove(this);
     }
 
     /**
