@@ -39,5 +39,5 @@ public class Wall extends Field {
         return Interact(p);
     }
 
-    public int Add(Box t){ return 0;}
+    public int Add(Box b){ return 0;}
 }
