@@ -13,15 +13,18 @@ import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JList;
+import java.awt.event.ActionListener;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.JLabel;
+import java.awt.event.ActionEvent;
 
 public class MenuFrame extends JFrame{
 
-    String globalVariable = null;
-    BufferedImage background = null;
+    private String globalVariable = null;
+    private BufferedImage background = null;
+    private static GameFrame activeGameFrame;
     private JFrame frmMenu;
 
     /**
@@ -43,6 +46,11 @@ public class MenuFrame extends JFrame{
         }
         return result;
     }
+
+    public static GameFrame getActiveGameFrame()
+    {
+        return activeGameFrame;
+    }
     /**
      * Initialize the contents of the frame.
      */
@@ -55,11 +63,19 @@ public class MenuFrame extends JFrame{
         JPanel mainPanel = new JPanel(null);
         getContentPane().add(mainPanel);
 
-        JButton component = new JButton();
-        component.setText("Exit");
+        JButton btnExit = new JButton();
+        btnExit.setText("Exit");
 
-        component.setBounds(225, 311, 66, 24);
-        mainPanel.add(component);
+        btnExit.setActionCommand("btnExit");
+        btnExit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals("btnExit"))
+                    System.exit(0);
+            }
+        });
+
+        btnExit.setBounds(225, 311, 66, 24);
+        mainPanel.add(btnExit);
 
         JButton btnNewButton = new JButton("Start");
         btnNewButton.setBounds(309, 312, 66, 23);
@@ -103,16 +119,17 @@ public class MenuFrame extends JFrame{
         backgroundPanel.setLayout(new BorderLayout(0, 0));
 
         list.addListSelectionListener(new ListSelectionListener() {
-
             @Override
             public void valueChanged(ListSelectionEvent arg0) {
                 if (!arg0.getValueIsAdjusting()) {
-                    globalVariable =  "bHDIt_jgZBISepXSqY5TMgkc3D1kPvraHuw0w308zU0.png";
+
+                    globalVariable =  "Maps//"+list.getSelectedValue().toString();
                     background = loadImage();
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
+                    mainPanel.revalidate();
                     mainPanel.repaint();
-                    labelMenu.setText(list.getSelectedValue().toString());
+                    //labelMenu.setText("Maps//"+list.getSelectedValue().toString());
                 }
             }
         });

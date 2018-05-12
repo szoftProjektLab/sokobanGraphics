@@ -68,6 +68,7 @@ public class GameFrame extends JFrame {
         contentPane.add(labelGame, BorderLayout.CENTER);
         labelGame.setLayout(new GridLayout(1, 0, 0, 0));
     }
+
     public void SetTexture(int x, int y, String path)
     {
         this.x = x;
@@ -75,7 +76,6 @@ public class GameFrame extends JFrame {
         this.globalVariable = path;
         labelGame.revalidate();
         labelGame.repaint();
-
     }
 
 }
