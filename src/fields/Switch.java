@@ -47,8 +47,11 @@ public class Switch extends Field implements IDrawable {
      */
     @Override
     public void Draw(int x, int y) {
-        String path="textures/Switchclosed.jpg";
-        String path1="textures/Switchopen.jpg";
+        //String path="textures/Switchclosed.jpg";
+        //String path1="textures/Switchopen.jpg";
+
+        String path="SC";
+        String path1="SO";
 
         if(active==true){
             if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureField(x,y,path1);
