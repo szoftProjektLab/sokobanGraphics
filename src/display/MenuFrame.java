@@ -89,6 +89,7 @@ public class MenuFrame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("btnRemove")) {
                     Game g = Game.getInstance();
+                    setVisible(false);
                     g.StartGame("Maps/"+globalVariable+".txt");
                     activeGameFrame = new GameFrame();
                     activeGameFrame.setVisible(true);
