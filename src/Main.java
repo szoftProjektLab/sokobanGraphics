@@ -35,8 +35,8 @@ public class Main {
         f1.SetNeighbour(Direction.Right, f2);
         Player p11 = new Player(3);
         Player p12 = new Player(3);
-        f1.Add(p11); //Interactot hív
-        f2.Add(p12);
+        f11.Add(p11); //Interactot hív
+        f12.Add(p12);
         p11.StartMove(Direction.Right);
 
         System.out.println("\n");
