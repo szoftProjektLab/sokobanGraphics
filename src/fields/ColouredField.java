@@ -50,7 +50,7 @@ public class ColouredField extends Field implements IDrawable {
         int tmp=0;
         if (cb.GetColour()==matchingbox.GetColour()){
             tmp=1;
-            thing.Die();
+            getThing().Die();
         }
         return tmp;
     }
