@@ -27,11 +27,18 @@ public abstract class Thing {
     /**
      * A leszármazottak felüldefiniálják. Az érkező Thing hívja.
      * @param d A mozgás iránya
-     * @param t Az érkező Thing
+     * @param b Az érkező Box
      * @return 0
      */
-    public abstract int Collide (Direction d, Box t, double s);
-    public abstract int Collide (Direction d, Player t, double s);
+    public abstract int Collide (Direction d, Box b, double s);
+
+    /**
+     * A leszármazottak felüldefiniálják. Az érkező Thing hívja.
+     * @param d A mozgás iránya
+     * @param p Az érkező Player
+     * @return 0
+     */
+    public abstract int Collide (Direction d, Player p, double s);
 
     /**
      * Végrehajtja a léptetést. A használni kívánt szabad mező hívja
