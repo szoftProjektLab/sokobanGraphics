@@ -29,7 +29,8 @@ public class Hole extends Field implements IDrawable {
      */
     @Override
     public void Draw(int x, int y) {
-        String path="textures/Hole2.jpg";
+        //String path="textures/Hole2.jpg";
+        String path="H";
         if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureField(x,y,path);
     }
 }

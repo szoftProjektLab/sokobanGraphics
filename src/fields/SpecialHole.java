@@ -46,9 +46,11 @@ public class SpecialHole extends Hole implements IDrawable {
      */
     @Override
     public void Draw(int x, int y) {
-        String path="textures/Field2.jpg";
-        String path1="textures/Hole2.jpg";
+        //String path="textures/Field2.jpg";
+        //String path1="textures/Hole2.jpg";
 
+        String path="F";
+        String path1="H";
         if(open==false){
             if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureField(x,y,path);
         }else{

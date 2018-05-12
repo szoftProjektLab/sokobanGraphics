@@ -141,9 +141,13 @@ public class Player extends Thing implements IDrawable {
     public void Draw(int x, int y) {
         String path="";
         if(id==1){
-            path="textures/Worker1.png";
+            //path="textures/Worker1.png";
+            path="W1";
         }
-        else if(id==2) path="textures/Worker2.png";
+        else if(id==2){
+            path="W2";
+            //path="textures/Worker2.png";
+        }
 
         if(!path.equals("")&& MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureThing(x,y,path);
     }

@@ -6,8 +6,11 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
+import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -26,6 +29,8 @@ public class GameFrame extends JFrame {
     private BufferedImage fieldTextures[][];
 
     private int x, y;
+
+    private HashMap<String, BufferedImage> fieldImages = new HashMap<String, BufferedImage>();
 
 
     private BufferedImage loadImage(){
@@ -97,6 +102,17 @@ public class GameFrame extends JFrame {
         contentPane.add(labelGame, BorderLayout.CENTER);
         labelGame.setLayout(new GridLayout(1, 0, 0, 0));
 
+        globalVariable="textures/Field2.jpg"; fieldImages.put("F", loadImage());
+        globalVariable="textures/Hole2.jpg"; fieldImages.put("H", loadImage());
+        globalVariable="textures/Switchclosed.jpg"; fieldImages.put("SC", loadImage());
+        globalVariable="textures/Switchopen.jpg"; fieldImages.put("SO", loadImage());
+        globalVariable="textures/Wall.jpg"; fieldImages.put("W", loadImage());
+        globalVariable="textures/Worker1.png";fieldImages.put("W1", loadImage());
+        globalVariable="textures/Worker2.png";fieldImages.put("W2", loadImage());
+        globalVariable="textures/box.jpg";fieldImages.put("B", loadImage());
+
+        globalVariable=null;
+
         this.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent arg) {
@@ -136,8 +152,6 @@ public class GameFrame extends JFrame {
     public void doReinvalidateRepaint()
     {
         //texture = loadImage();
-
-        //texture = loadImage();
         labelGame.revalidate();
         labelGame.repaint();
     }
@@ -146,8 +160,9 @@ public class GameFrame extends JFrame {
     {
         this.x = x;
         this.y = y;
-        this.globalVariable = path;
-        texture = loadImage();
+        //this.globalVariable = path;
+        //texture = loadImage();
+        texture=fieldImages.get(path);//OK
         fieldTextures[x][y] = texture;
     }
 
@@ -155,16 +170,26 @@ public class GameFrame extends JFrame {
     {
         this.x = x;
         this.y = y;
-        this.globalVariable = path;
-        texture = loadImage();
+        //this.globalVariable = path;
+        //texture = loadImage();
+        texture=fieldImages.get(path);
         thingTextures[x][y] = texture;
+    }
+
+    static BufferedImage deepCopy(BufferedImage bi) {
+        ColorModel cm = bi.getColorModel();
+        boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
+        WritableRaster raster = bi.copyData(null);
+        return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
     }
 
     public void SetTextureField(int x, int y, String path, Colours c) {
         this.x = x;
         this.y = y;
-        this.globalVariable = path;
-        texture = loadImage();
+        //this.globalVariable = path;
+        //texture = loadImage();
+
+        texture= deepCopy(fieldImages.get(path));//OK
 
         for (int col = 0; col < texture.getWidth(); col++) {
             for (int row = 0; row < texture.getHeight(); row++) {
@@ -188,8 +213,10 @@ public class GameFrame extends JFrame {
         public void SetTextureThing(int x, int y, String path, Colours c) {
             this.x = x;
             this.y = y;
-            this.globalVariable = path;
-            texture = loadImage();
+
+            //this.globalVariable = path;
+            //texture = loadImage();
+            texture= deepCopy(fieldImages.get(path));
 
             for (int col = 0; col < texture.getWidth(); col++) {
                 for (int row = 0; row < texture.getHeight(); row++) {

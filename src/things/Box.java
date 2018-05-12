@@ -77,7 +77,8 @@ public class Box extends Thing implements IDrawable {
      */
     @Override
     public void Draw(int x, int y) {
-        String path="textures/box.jpg";
+        //String path="textures/box.jpg";
+        String path="B";
         if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureThing(x,y,path);
     }
 }
