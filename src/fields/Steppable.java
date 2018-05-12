@@ -60,7 +60,7 @@ public abstract class Steppable {
      * @return 0
      */
     public int Add(Box b){
-        this.thing = t;
+        this.thing = b;
         b.SetField(this);
         int tmp = Interact(b);
         return tmp;
@@ -68,7 +68,7 @@ public abstract class Steppable {
 
     /**
      * Egy ColouredBox-ot hozzácsatol az aktuális mezőhöz.
-     * @param t A csatolandó Box(Thing)
+     * @param cb A csatolandó Box(Thing)
      * @return 0
      */
     public int Add(ColouredBox cb){
