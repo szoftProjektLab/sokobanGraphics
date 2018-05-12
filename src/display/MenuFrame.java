@@ -42,7 +42,7 @@ public class MenuFrame extends JFrame{
         BufferedImage result = null;
 
         try {
-            result = ImageIO.read(new File("Maps//"+globalVariable+".jpg"));
+            result = ImageIO.read(new File("Maps/"+globalVariable+".jpg"));
         } catch (IOException e) {
             System.out.println("Nem található a kiválasztott pálya!");
         }
@@ -88,7 +88,7 @@ public class MenuFrame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("btnRemove")) {
                     Game g = Game.getInstance();
-                    g.StartGame("Maps//"+globalVariable+".txt");
+                    g.StartGame("Maps/"+globalVariable+".txt");
                 }
             }
         });
