@@ -34,6 +34,7 @@ public class ColouredBox extends Box{
      * @param f A kapott Field, amire lépnie kéne.
      * @return tmp A Field a ráhelyezett Box-al.
      */
+    @Override
     public int AcceptMove(Field f){
         int tmp = 0;
         field.Remove(this);
