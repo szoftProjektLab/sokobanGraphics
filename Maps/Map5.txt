@@ -16,7 +16,7 @@ n,n,n,n,n,n,n,n,n,n
 n,n,D,n,D,n,D,n,n,n
 n,D,n,D,n,D,n,D,n,n
 n,n,D,n,K,n,D,n,D,n
-n,B,n,K,n,K,n,n,A,n
+n,B,n,K,n,K,n,D,A,n
 n,n,D,n,K,n,D,n,D,n
 n,D,n,D,n,D,n,D,n,n
 n,n,D,n,D,n,D,n,D,n
