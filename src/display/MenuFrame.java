@@ -1,4 +1,6 @@
 package display;
+import game.Game;
+
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -40,9 +42,9 @@ public class MenuFrame extends JFrame{
         BufferedImage result = null;
 
         try {
-            result = ImageIO.read(new File(globalVariable));
+            result = ImageIO.read(new File("Maps//"+globalVariable+".jpg"));
         } catch (IOException e) {
-            System.out.println("Rossz volt!");
+            System.out.println("Nem található a kiválasztott pálya!");
         }
         return result;
     }
@@ -77,9 +79,19 @@ public class MenuFrame extends JFrame{
         btnExit.setBounds(225, 311, 66, 24);
         mainPanel.add(btnExit);
 
-        JButton btnNewButton = new JButton("Start");
-        btnNewButton.setBounds(309, 312, 66, 23);
-        mainPanel.add(btnNewButton);
+        JButton btnStart = new JButton("Start");
+        btnStart.setBounds(309, 312, 66, 23);
+        mainPanel.add(btnStart);
+
+        btnStart.setActionCommand("btnRemove");
+        btnStart.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals("btnRemove")) {
+                    Game g = Game.getInstance();
+                    g.StartGame("Maps//"+globalVariable+".txt");
+                }
+            }
+        });
 
         JList<String> list = new JList<String>();
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -123,7 +135,7 @@ public class MenuFrame extends JFrame{
             public void valueChanged(ListSelectionEvent arg0) {
                 if (!arg0.getValueIsAdjusting()) {
 
-                    globalVariable =  "Maps//"+list.getSelectedValue().toString();
+                    globalVariable =  list.getSelectedValue().toString();
                     background = loadImage();
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();

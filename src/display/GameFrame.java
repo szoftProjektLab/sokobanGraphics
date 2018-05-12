@@ -62,7 +62,7 @@ public class GameFrame extends JFrame {
                 if(texture == null)
                     return;
 
-                g.drawImage(texture, x, y,size.width, size.height,x, y, texture.getWidth(), texture.getHeight(), null);
+                g.drawImage(texture, x, y,size.width, size.height,0, 0, texture.getWidth(), texture.getHeight(), null);
             }
         };
         contentPane.add(labelGame, BorderLayout.CENTER);
@@ -74,6 +74,20 @@ public class GameFrame extends JFrame {
         this.x = x;
         this.y = y;
         this.globalVariable = path;
+        texture = loadImage();
+
+        labelGame.revalidate();
+        labelGame.repaint();
+    }
+
+    public void SetTexture(int x, int y, String path, Colours c)
+    {
+        this.x = x;
+        this.y = y;
+        this.globalVariable = path;
+        texture = loadImage();
+        //texture.set
+
         labelGame.revalidate();
         labelGame.repaint();
     }
