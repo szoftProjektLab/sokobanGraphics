@@ -16,6 +16,7 @@ public class Wall extends Field {
      * @return
      */
     @Override
+    @SuppressWarnings("Duplicates")
     public int TryMove(Direction d, Thing t, double s){
         int tmp =0;
         if(s < effect) {
@@ -31,8 +32,6 @@ public class Wall extends Field {
         }
         return tmp;
     }
-
-    //public void Remove(Thing t){ } //???
 
     public int Add(Player t){
         this.thing = t;
