@@ -41,6 +41,7 @@ public class GameFrame extends JFrame {
      * Create the frame.
      */
     public GameFrame() {
+        setTitle("Sokoban");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 800, 810);
         contentPane = new JPanel();

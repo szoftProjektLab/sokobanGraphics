@@ -34,6 +34,7 @@ public class MenuFrame extends JFrame{
      * Create the application.
      */
     public MenuFrame() {
+
         initialize();
     }
 
