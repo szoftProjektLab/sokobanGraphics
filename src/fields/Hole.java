@@ -22,6 +22,11 @@ public class Hole extends Field implements IDrawable {
         return 0;
     }
 
+    public String GetPath()
+    {
+        return "textures/Hole2.jpg";
+    }
+
     /**
      *Objektum kirajzolása
      * @param x sor

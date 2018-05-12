@@ -134,14 +134,14 @@ public class Game {
                     {
                         //Első játékos létrehozása
                         case"A":
-                            Player a = new Player();
+                            Player a = new Player(1);
                             a.setWarehouse(running);
                             running.setPlayerCount(++playercount);
                             running.getField(curRow,curColumn).Add(a);
                             break;
                         //Második játékos létrehozása
                         case "B":
-                            Player b = new Player();
+                            Player b = new Player(2);
                             b.setWarehouse(running);
                             running.setPlayerCount(++playercount);
                             running.getField(curRow,curColumn).Add(b);

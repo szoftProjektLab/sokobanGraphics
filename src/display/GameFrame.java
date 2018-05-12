@@ -1,4 +1,6 @@
 package display;
+import game.Game;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -6,6 +8,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import game.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JSplitPane;
 import javax.swing.JLabel;
@@ -62,7 +65,26 @@ public class GameFrame extends JFrame {
                 if(texture == null)
                     return;
 
-                g.drawImage(texture, x, y,size.width, size.height,0, 0, texture.getWidth(), texture.getHeight(), null);
+                //g.drawImage(texture,x,y,null);
+                Warehouse wh = Game.getInstance().getRunning();
+
+                for(int i=0;i<wh.getRow();i++){
+                    for(int j=0;j<wh.getColumn();j++){
+                        globalVariable = wh.getField(i,j).GetPath();
+                        texture = loadImage();
+                        System.out.println(globalVariable);
+
+                        g.drawImage(texture, 60*j, 60*i,60*j+60, 60*i+60,0,0, 120, 120, null);
+                        if(wh.getField(i,j).getThing()!=null) {
+                            globalVariable = wh.getField(i, j).getThing().GetPath();
+                            System.out.println(globalVariable);
+                            texture = loadImage();
+                            g.drawImage(texture, 60*j, 60*i,60*j+60, 60*i+60,0,0, 120, 120, null);
+
+                        }
+                    }
+                }
+                //g.drawImage(texture, 0, 0,size.width, size.height,x,y, 60, 60, null);
             }
         };
         contentPane.add(labelGame, BorderLayout.CENTER);

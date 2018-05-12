@@ -13,12 +13,15 @@ public class Player extends Thing implements IDrawable {
     /** A játékos ereje */
     private double strength;
 
+    private int id;
+
     /**
      * A játékos mozgási ereje 3
      */
-    public Player() {
+    public Player(int id1) {
         points = 0;
         strength = 3;
+        id = id1;
     }
 
     /**
@@ -128,6 +131,17 @@ public class Player extends Thing implements IDrawable {
         field.setEffect(effect);
     }
 
+
+    public String GetPath()
+    {
+        String path = null;
+        if(id==1){
+            path="textures/Worker1.png";
+        }
+        else if(id==2) path="textures/Worker2.png";
+        return path;
+    }
+
     /**
      *Objektum kirajzolása
      * @param x sor
@@ -136,10 +150,10 @@ public class Player extends Thing implements IDrawable {
     @Override
     public void Draw(int x, int y) {
         String path="";
-        if(warehouse.getPlayerCount()==1){
+        if(id==1){
             path="textures/Worker1.png";
         }
-        else if(warehouse.getPlayerCount()==2) path="textures/Worker2.png";
+        else if(id==2) path="textures/Worker2.png";
 
         if(!path.equals("")&& MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
     }

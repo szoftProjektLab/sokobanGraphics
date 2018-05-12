@@ -55,6 +55,11 @@ public class ColouredField extends Field implements IDrawable {
         return tmp;
     }
 
+    public String GetPath()
+    {
+        return "textures/Field2.jpg";
+    }
+
     /**
      *Objektum kirajzolása
      * @param x sor

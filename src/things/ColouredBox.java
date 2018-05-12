@@ -44,6 +44,10 @@ public class ColouredBox extends Box implements IDrawable {
         return tmp;
     }
 
+    public String GetPath()
+    {
+        return "textures/box.jpg";
+    }
     /**
      *Objektum kirajzolása
      * @param x sor

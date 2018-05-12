@@ -68,11 +68,18 @@ public abstract class Thing  implements IDrawable {
     {
         field = f;
     }
+
+    public String GetPath()
+    {
+        return null;
+    }
+
     /**
      *Objektum kirajzolása
      * @param x sor
      * @param y oszlop
      */
+
     @Override
     public void Draw(int x, int y) {}
 }

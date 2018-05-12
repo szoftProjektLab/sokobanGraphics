@@ -39,6 +39,10 @@ public class SpecialHole extends Hole implements IDrawable {
      */
     public void SetOpen(boolean op) { open=op; }
 
+    public String GetPath()
+    {
+        return "textures/Hole2.jpg";
+    }
     /**
      *Objektum kirajzolása
      * @param x sor
