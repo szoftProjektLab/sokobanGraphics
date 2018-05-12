@@ -62,8 +62,6 @@ public class GameFrame extends JFrame {
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 Dimension size = getSize();
-                if(texture == null)
-                    return;
 
                 //g.drawImage(texture,x,y,null);
                 Warehouse wh = Game.getInstance().getRunning();
@@ -91,6 +89,22 @@ public class GameFrame extends JFrame {
         };
         contentPane.add(labelGame, BorderLayout.CENTER);
         labelGame.setLayout(new GridLayout(1, 0, 0, 0));
+        try{
+            Thread.sleep(1000);
+        }
+        catch(Exception ej)
+        {
+
+        }
+        doReinvalidateRepaint();
+    }
+    public void doReinvalidateRepaint()
+    {
+        //texture = loadImage();
+
+        //texture = loadImage();
+        labelGame.revalidate();
+        labelGame.repaint();
     }
 
     public void SetTexture(int x, int y, String path)
