@@ -2,8 +2,6 @@ package things;
 
 import enums.Direction;
 import fields.Field;
-import fields.Hole;
-import fields.Switch;
 import fields.Wall;
 
 public class Box extends Thing {
@@ -13,29 +11,34 @@ public class Box extends Thing {
      * hogy értesítse
      * @param d A mozgás iránya
      * @param t A használni kívánt mezőt elfogaló Thing
-     * @return
+     * @return t.Collide(d, this, s)
      */
     public int MakeCollision (Direction d, Thing t, double s){
-        int tmp = t.Collide(d, this, s);
-        return tmp;
+        return t.Collide(d, this, s);
     }
 
     /**
-     * Egy, a doboz által elfoglalt mezőre érkezni kívánó játékos(Player) vagy doboz(Box) hívja meg.
+     * Egy, a doboz által elfoglalt mezőre érkezni kívánó doboz(Box) hívja meg.
      * További mozgást kezdeményez a megadott irányban. Ha a mozgások során színes láda kerül neki
      * megfelelő helyre, visszaadja / továbbítja a megszerzett pontszámot a hívó felé.
      * @param d A mozgás iránya
-     * @param t Az érkező Thing
-     * @return
+     * @param b Az érkező Box
+     * @return field.TryMove(d,s)
      */
-    public int Collide(Direction d, Box t, double s){
-        int tmp = field.TryMove(d,s);
-        return tmp;
+    public int Collide(Direction d, Box b, double s){
+        return field.TryMove(d,s);
     }
 
-    public int Collide(Direction d, Player t, double s){
-        int tmp = field.TryMove(d,s);
-        return tmp;
+    /**
+     * Egy, a doboz által elfoglalt mezőre érkezni kívánó játékos(Player) hívja meg.
+     * További mozgást kezdeményez a megadott irányban. Ha a mozgások során színes láda kerül neki
+     * megfelelő helyre, visszaadja / továbbítja a megszerzett pontszámot a hívó felé.
+     * @param d A mozgás iránya
+     * @param p Az érkező Player
+     * @return field.TryMove(d,s)
+     */
+    public int Collide(Direction d, Player p, double s){
+        return field.TryMove(d,s);
     }
 
     /**

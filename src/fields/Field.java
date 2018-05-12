@@ -31,14 +31,13 @@ public class Field extends Steppable {
      * @param f szomszédnak szánt Field
      */
     public void SetNeighbour(Direction d, Field f){
-        //Kell setterbe? Skeleton.getInstance.Return(this);
         neighbours.put(d, f);
     }
 
     /**
      * Visszaadja abban az irányban lévő szomszédos mezőt
      * @param d Szomszéd iránya
-     * @return
+     * @return neighbours.get(d)
      */
     public Field GetNeighbour(Direction d){
         return neighbours.get(d);
@@ -48,12 +47,10 @@ public class Field extends Steppable {
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
      * @param d A mozgás iránya
      * @param s A játékos maradék ereje
-     * @return
+     * @return tmp
      */
     public int TryMove(Direction d, double s){
-        //return neighbours.get(d).TryMove(d, this.thing);
-        int tmp = neighbours.get(d).TryMove(d, this.thing, effect);
-        return tmp;
+        return neighbours.get(d).TryMove(d, this.thing, effect);
     }
 
     /**
@@ -61,7 +58,7 @@ public class Field extends Steppable {
      * @param d A mozgás iránya
      * @param t Az érkezni kívánó Thing
      * @param s A játékos maradék ereje
-     * @return
+     * @return tmp
      */
     @SuppressWarnings("Duplicates")
     public int TryMove(Direction d, Thing t, double s){
@@ -79,9 +76,6 @@ public class Field extends Steppable {
         }
         return tmp;
     }
-
-
-
 
     /**
      * Beállítja a mezőn adott effektet
