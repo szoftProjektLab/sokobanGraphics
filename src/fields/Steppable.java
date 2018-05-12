@@ -2,6 +2,7 @@ package fields;
 
 import enums.Direction;
 import things.Box;
+import things.ColouredBox;
 import things.Player;
 import things.Thing;
 
@@ -78,6 +79,16 @@ public abstract class Steppable {
      * @return 0
      */
     public int Interact(Box b){ return 0; }
+
+
+    /**
+     * Itt nem csinál semmit,
+     * a leszármazottak felülírják ha használni akarják
+     * @param cb ColouredBox
+     * @return 0
+     */
+    public int Interact(ColouredBox cb){ return 0; }
+
 
 
     /**

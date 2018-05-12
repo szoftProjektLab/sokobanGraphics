@@ -2,8 +2,6 @@ package fields;
 
 import display.Colours;
 import things.ColouredBox;
-import things.Box;
-import things.Thing;
 
 public class ColouredField extends Field {
 
@@ -11,13 +9,13 @@ public class ColouredField extends Field {
     private Colours colour;
 
     /** A hozzá tartozó doboz */
-    private ColouredBox box;
+    private ColouredBox matchingbox;
 
     /**
      * Beállítja a hozzá tartozó színes dobozt
      * @param cb Színes doboz
      */
-    public void SetBox(ColouredBox cb){ box=cb; }
+    public void SetBox(ColouredBox cb){ matchingbox=cb; }
 
     /**
      * Beállítja a doboz színét adott színre
@@ -37,18 +35,18 @@ public class ColouredField extends Field {
      * Beállítja a saját és a hozzá tartozó színes doboz színét.
      */
     public void InitColour(){
-        box.SetColour(colour);
+        matchingbox.SetColour(colour);
     }
 
     /**
-     * Ha színes láda kerül rá, ellenőrzi, hogy a hozzá tartozó áll e rajta,
+     * Ellenőrzi, hogy a hozzá tartozó színes láda áll e rajta,
      * ha igen, pontot ad és kitörli.
-     * @param b Rajta álló Box
+     * @param cb Rajta álló ColouredBox
      * @return tmp
      */
-    public int Interact(Box b){
+    public int Interact(ColouredBox cb){
         int tmp=0;
-        if (b==box){
+        if (cb.GetColour()==matchingbox.GetColour()){
             tmp=1;
             thing.Die();
         }
