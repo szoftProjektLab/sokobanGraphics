@@ -1,0 +1,26 @@
+10
+10
+
+W,W,W,W,W,W,W,W,W,W
+W, , , , , , , , ,W
+W, , , , , , , , ,W
+W, , , , , , , , ,W
+W, , , , , , , , ,W
+W, , , , , , , , ,W
+W, , , , , , , , ,W
+W, , , , , , , , ,W
+W, , , , , , , , ,W
+W,W,W,W,W,W,W,W,W,W
+
+n,n,n,n,n,n,n,n,n,n
+n,n,n,n,n,n,n,n,n,n
+n,n,n,n,n,n,n,n,n,n
+n,n,n,n,n,n,n,n,n,n
+n,n,n,n,n,n,n,n,n,n
+n,n,n,n,n,n,n,n,n,n
+n,n,n,n,n,n,n,n,n,n
+n,n,n,n,n,n,n,n,n,n
+n,n,n,n,n,n,n,n,n,n
+n,n,n,n,n,n,n,n,n,n
+
+parosit
