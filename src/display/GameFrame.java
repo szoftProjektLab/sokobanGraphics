@@ -1,7 +1,10 @@
 package display;
+import enums.Direction;
 import game.Game;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -93,6 +96,42 @@ public class GameFrame extends JFrame {
         };
         contentPane.add(labelGame, BorderLayout.CENTER);
         labelGame.setLayout(new GridLayout(1, 0, 0, 0));
+
+        this.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent arg) {
+                Warehouse wh = Game.getInstance().getRunning();
+                switch (arg.getKeyCode()){
+                    case KeyEvent.VK_W:
+                        wh.getPlayer(0).StartMove(Direction.Up);
+                        break;
+                    case KeyEvent.VK_A:
+                        wh.getPlayer(0).StartMove(Direction.Left);
+                        break;
+                    case KeyEvent.VK_S:
+                        wh.getPlayer(0).StartMove(Direction.Down);
+                        break;
+                    case KeyEvent.VK_D:
+                        wh.getPlayer(0).StartMove(Direction.Right);
+                        break;
+                    case KeyEvent.VK_UP:
+                        wh.getPlayer(1).StartMove(Direction.Up);
+                        break;
+                    case KeyEvent.VK_LEFT:
+                        wh.getPlayer(1).StartMove(Direction.Left);
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        wh.getPlayer(1).StartMove(Direction.Right);
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        wh.getPlayer(1).StartMove(Direction.Down);
+                        break;
+                }
+                wh.DrawMap();
+                doReinvalidateRepaint();
+            }
+        });
+
     }
     public void doReinvalidateRepaint()
     {

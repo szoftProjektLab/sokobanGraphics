@@ -2,6 +2,7 @@ package game;
 import display.MenuFrame;
 import enums.Direction;
 import fields.Field;
+import things.Player;
 import things.Thing;
 
 /**
@@ -12,10 +13,15 @@ public class Warehouse {
      * Színes dobozok száma
      */
     private int colouredBoxCount;
+
+    /**
+     * Játékosok
+     */
+    private Player[] players = new Player[2];
     /**
      * Játékosok száma
      */
-    private int playerCount;
+    private int playerCount=0;
 
     private Field[][] fields;
 
@@ -26,6 +32,19 @@ public class Warehouse {
         SetNeighbours();
     }
 
+    public void addPlayer(Player p){
+        if(playerCount==0){
+            players[0]=p;
+            playerCount++;
+        }else if (playerCount==1){
+            players[1]=p;
+            playerCount++;
+        }
+    }
+
+    public Player getPlayer(int i){
+        return players[i];
+    }
     /**
      * A pálya méretét beállító függvény
      * @param row       Sorok száma

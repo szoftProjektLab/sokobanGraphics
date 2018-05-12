@@ -37,7 +37,7 @@ public class Game {
     public void StartGame(String file){
         String line = null;
         running = new Warehouse();
-        int playercount=0;
+        //int playercount=0;
 
 
         try {
@@ -136,15 +136,17 @@ public class Game {
                         case"A":
                             Player a = new Player(1);
                             a.setWarehouse(running);
-                            running.setPlayerCount(++playercount);
+                            //running.setPlayerCount(++playercount);
                             running.getField(curRow,curColumn).Add(a);
+                            running.addPlayer(a);
                             break;
                         //Második játékos létrehozása
                         case "B":
                             Player b = new Player(2);
                             b.setWarehouse(running);
-                            running.setPlayerCount(++playercount);
+                            //running.setPlayerCount(++playercount);
                             running.getField(curRow,curColumn).Add(b);
+                            running.addPlayer(b);
                             break;
                         //Láda létrehozása (nem ad pontot)
                         case"D":
