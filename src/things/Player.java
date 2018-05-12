@@ -13,13 +13,9 @@ public class Player extends Thing implements IDrawable {
     private double strength;
 
 
-    /**
-     * Player paraméterezett konstrunktora
-     * @param s A beallítandó strength-je a játékosnak
-     */
-    public Player(double s) {
+    public Player() {
         points = 0;
-        strength = s;
+        strength = 3;
     }
 
     /**
