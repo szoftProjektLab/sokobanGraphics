@@ -11,21 +11,24 @@ public abstract class Steppable {
     protected Thing thing;
 
     /**
-     * Az adott irányba beállítja a szomszédos mezőt.
+     * Absztrakt
+     * Leszármazott osztályban az adott irányba beállítja a szomszédos mezőt.
      * @param d irány
      * @param f szomszédnak szánt Field
      */
     public abstract void SetNeighbour(Direction d, Field f);
 
     /**
-     * Visszaadja abban az irányban lévő szomszédos mezőt
+     * Absztrakt
+     * Leszármazott osztályban visszaadja abban az irányban lévő szomszédos mezőt
      * @param d Szomszéd iránya
      * @return
      */
     public abstract Field GetNeighbour(Direction d);
 
     /**
-     * Visszaadja a jelenleg eltárolt, rajta lévő tárgy referenciáját
+     * Absztrakt
+     * Leszármazott osztályban visszaadja a jelenleg eltárolt, rajta lévő tárgy referenciáját
      * @return
      */
     public abstract Thing getThing();
@@ -55,7 +58,8 @@ public abstract class Steppable {
     }
 
     /**
-     * Az éppen rajta álló tárgyat eltávolítja a mezőről
+     * Absztrakt
+     * Leszármazott osztályban az éppen rajta álló tárgyat eltávolítja a mezőről
      */
     public abstract void Remove(Thing t);
 
@@ -77,7 +81,8 @@ public abstract class Steppable {
 
 
     /**
-     * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
+     * Absztrakt
+     * Leszármazott osztályban a mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
      * @param d A mozgás iránya
      * @param s A játékos maradék ereje
      * @return
@@ -85,7 +90,8 @@ public abstract class Steppable {
     public abstract int TryMove(Direction d, double s);
 
     /**
-     * A szomszédos mező a felőle érkező mozgás igényt ennek meghívásával jelzi.
+     * Absztrakt
+     * Leszármazott osztályban a szomszédos mező a felőle érkező mozgás igényt ennek meghívásával jelzi.
      * @param d A mozgás iránya
      * @param t Az érkezni kívánó Thing
      * @param s A játékos maradék ereje
@@ -95,7 +101,8 @@ public abstract class Steppable {
 
 
     /**
-     * Beállítja a mezőn adott effektet
+     * Absztrakt
+     * Leszármazott osztályban beállítja a mezőn adott effektet
      * @param effect  Effekt
      */
     public abstract void setEffect(double effect);
