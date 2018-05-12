@@ -105,13 +105,13 @@ public class Game {
                         //Mézzel bekent mező
                         case"H":
                             Field f2 = new Field();
-                            f2.setEffect(0.5);
+                            f2.setEffect(1.5);
                             running.setField(curRow,curColumn,f2);
                             break;
                         //Olajjal bekent mező
                         case"O":
                             Field f3 = new Field();
-                            f3.setEffect(1.5);
+                            f3.setEffect(0.5);
                             running.setField(curRow,curColumn,f3);
                             break;
 
@@ -134,14 +134,14 @@ public class Game {
                     {
                         //Első játékos létrehozása
                         case"A":
-                            Player a = new Player(1);
+                            Player a = new Player();
                             a.setWarehouse(running);
                             running.setPlayerCount(++playercount);
                             running.getField(curRow,curColumn).Add(a);
                             break;
                         //Második játékos létrehozása
                         case "B":
-                            Player b = new Player(1);
+                            Player b = new Player();
                             b.setWarehouse(running);
                             running.setPlayerCount(++playercount);
                             running.getField(curRow,curColumn).Add(b);

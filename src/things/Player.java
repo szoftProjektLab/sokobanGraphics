@@ -13,7 +13,9 @@ public class Player extends Thing implements IDrawable {
     /** A játékos ereje */
     private double strength;
 
-
+    /**
+     * A játékos mozgási ereje 3
+     */
     public Player() {
         points = 0;
         strength = 3;
