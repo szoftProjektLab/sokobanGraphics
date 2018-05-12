@@ -1,16 +1,37 @@
 package display;
-import java.awt.BorderLayout;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JSplitPane;
 import javax.swing.JLabel;
-import java.awt.GridLayout;
 
 public class GameFrame extends JFrame {
 
     private JPanel contentPane;
+    private String globalVariable = null;
+    private BufferedImage texture = null;
+    private JPanel mainPanel;
+    private JPanel labelGame;
+    int x, y;
 
+
+    private BufferedImage loadImage(){
+        if(globalVariable == null)
+            return null;
+        BufferedImage result = null;
+
+        try {
+            result = ImageIO.read(new File(globalVariable));
+        } catch (IOException e) {
+            System.out.println("Rossz volt!");
+        }
+        return result;
+    }
     /**
      * Create the frame.
      */
@@ -22,21 +43,38 @@ public class GameFrame extends JFrame {
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
 
-        JPanel panel = new JPanel();
-        contentPane.add(panel, BorderLayout.NORTH);
-        panel.setLayout(new BorderLayout(0, 0));
+        mainPanel = new JPanel();
+        contentPane.add(mainPanel, BorderLayout.NORTH);
+        mainPanel.setLayout(new BorderLayout(0, 0));
 
-        JLabel lblNewLabel = new JLabel("<html>Player 1<br/>Score</html>");
-        panel.add(lblNewLabel,BorderLayout.WEST);
+        JLabel labelPlayer1 = new JLabel("<html>Player 1<br/>Score</html>");
+        mainPanel.add(labelPlayer1,BorderLayout.WEST);
 
 
-        JLabel lblNewLabel_3 = new JLabel("<html>Player 2<br/>Score</html>");
-        panel.add(lblNewLabel_3,BorderLayout.EAST);
+        JLabel labelPlayer2 = new JLabel("<html>Player 2<br/>Score</html>");
+        mainPanel.add(labelPlayer2,BorderLayout.EAST);
 
-        JPanel panel_1 = new JPanel();
-        contentPane.add(panel_1, BorderLayout.CENTER);
-        panel_1.setLayout(new GridLayout(1, 0, 0, 0));
+        labelGame = new JPanel(){
+            @Override
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Dimension size = getSize();
+                if(texture == null)
+                    return;
 
+                g.drawImage(texture, x, y,size.width, size.height,x, y, texture.getWidth(), texture.getHeight(), null);
+            }
+        };
+        contentPane.add(labelGame, BorderLayout.CENTER);
+        labelGame.setLayout(new GridLayout(1, 0, 0, 0));
+    }
+    public void SetTexture(int x, int y, String path)
+    {
+        this.x = x;
+        this.y = y;
+        this.globalVariable = path;
+        labelGame.revalidate();
+        labelGame.repaint();
 
     }
 

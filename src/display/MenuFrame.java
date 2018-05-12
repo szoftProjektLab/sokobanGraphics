@@ -52,18 +52,18 @@ public class MenuFrame extends JFrame{
         setBounds(100, 100, 600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = new JPanel(null);
-        getContentPane().add(panel);
+        JPanel mainPanel = new JPanel(null);
+        getContentPane().add(mainPanel);
 
         JButton component = new JButton();
         component.setText("Exit");
 
         component.setBounds(225, 311, 66, 24);
-        panel.add(component);
+        mainPanel.add(component);
 
         JButton btnNewButton = new JButton("Start");
         btnNewButton.setBounds(309, 312, 66, 23);
-        panel.add(btnNewButton);
+        mainPanel.add(btnNewButton);
 
         JList<String> list = new JList<String>();
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -79,12 +79,12 @@ public class MenuFrame extends JFrame{
 
 
         listScroller.setBounds(225, 100, 150, 200);
-        panel.add(listScroller);
+        mainPanel.add(listScroller);
 
-        JLabel lblMenu = new JLabel("Menu");
-        lblMenu.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-        lblMenu.setBounds(275, 65, 66, 30);
-        panel.add(lblMenu);
+        JLabel labelMenu = new JLabel("Menu");
+        labelMenu.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+        labelMenu.setBounds(275, 65, 66, 30);
+        mainPanel.add(labelMenu);
 
         JPanel backgroundPanel = new JPanel() {
             @Override
@@ -99,7 +99,7 @@ public class MenuFrame extends JFrame{
         };
 
         backgroundPanel.setBounds(0, 0, 594, 471);
-        panel.add(backgroundPanel);
+        mainPanel.add(backgroundPanel);
         backgroundPanel.setLayout(new BorderLayout(0, 0));
 
         list.addListSelectionListener(new ListSelectionListener() {
@@ -111,8 +111,8 @@ public class MenuFrame extends JFrame{
                     background = loadImage();
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
-                    panel.repaint();
-                    lblMenu.setText(list.getSelectedValue().toString());
+                    mainPanel.repaint();
+                    labelMenu.setText(list.getSelectedValue().toString());
                 }
             }
         });
