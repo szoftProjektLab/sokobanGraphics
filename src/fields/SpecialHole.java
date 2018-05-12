@@ -4,6 +4,7 @@ import display.IDrawable;
 import display.MenuFrame;
 import things.Player;
 import things.Box;
+import things.ColouredBox;
 
 public class SpecialHole extends Hole implements IDrawable {
 
@@ -15,6 +16,13 @@ public class SpecialHole extends Hole implements IDrawable {
      * @return 0
      */
     public int Interact(Box b){
+        if(open){
+            b.Die();
+        }
+        return 0;
+    }
+
+    public int Interact(ColouredBox b){
         if(open){
             b.Die();
         }

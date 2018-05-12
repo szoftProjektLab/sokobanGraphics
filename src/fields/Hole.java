@@ -3,6 +3,7 @@ package fields;
 import display.IDrawable;
 import display.MenuFrame;
 import things.Box;
+import things.ColouredBox;
 import things.Player;
 
 public class Hole extends Field implements IDrawable {
@@ -18,6 +19,10 @@ public class Hole extends Field implements IDrawable {
     }
 
     public int Interact(Box b){
+        b.Die();
+        return 0;
+    }
+    public int Interact(ColouredBox b){
         b.Die();
         return 0;
     }

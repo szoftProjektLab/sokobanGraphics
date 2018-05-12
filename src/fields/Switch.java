@@ -3,6 +3,7 @@ package fields;
 import display.IDrawable;
 import display.MenuFrame;
 import things.Box;
+import things.ColouredBox;
 
 public class Switch extends Field implements IDrawable {
 
@@ -22,7 +23,13 @@ public class Switch extends Field implements IDrawable {
      * @param b A róla távozó tárgy
      */
     public void Remove(Box b){
-        this.thing=null;
+        SetThing(null);
+        hole.SetOpen(false);
+        active = false;
+    }
+
+    public void Remove(ColouredBox b) {
+        SetThing(null);
         hole.SetOpen(false);
         active = false;
     }
@@ -33,6 +40,13 @@ public class Switch extends Field implements IDrawable {
      * @return 0
      */
     public int Interact(Box b) {
+        if(hole!=null) {
+            hole.SetOpen(true);
+            active =true;
+        }
+        return 0;
+    }
+   public int Interact(ColouredBox b) {
         if(hole!=null) {
             hole.SetOpen(true);
             active =true;
