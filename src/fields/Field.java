@@ -70,11 +70,11 @@ public class Field extends Steppable implements IDrawable {
         }
         s-=effect;
         if (getThing()==null){
-            tmp = t.AcceptMove(this);
+            tmp += t.AcceptMove(this);
         } else{
-            tmp = t.MakeCollision(d, getThing(), s);
+            tmp += t.MakeCollision(d, getThing(), s);
             if(getThing() == null)
-                tmp = t.AcceptMove(this);
+                tmp += t.AcceptMove(this);
         }
         return tmp;
     }

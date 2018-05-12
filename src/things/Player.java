@@ -76,8 +76,16 @@ public class Player extends Thing implements IDrawable {
      */
     public void StartMove(Direction d){
         Field tmp = field.GetNeighbour(d);
-        tmp.TryMove(d, this, strength);
+        int p = tmp.TryMove(d, this, strength);
+        points += p;
+        System.out.println(p);
     }
+
+    public int GetPoints()
+    {
+        return points;
+    }
+
 
 
 

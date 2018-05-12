@@ -59,7 +59,7 @@ public class Box extends Thing implements IDrawable {
     public int AcceptMove(Field f){
         int tmp = 0;
         field.Remove(this);
-        tmp = f.Add(this);
+        tmp += f.Add(this);
         return tmp;
     }
 

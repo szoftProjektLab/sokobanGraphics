@@ -26,11 +26,11 @@ public class Wall extends Field implements IDrawable {
         }
         s-=effect;
         if (this.thing==null){
-            tmp = t.AcceptMove(this);
+            tmp += t.AcceptMove(this);
         } else{
-            tmp = t.MakeCollision(d, this.thing, s);
+            tmp += t.MakeCollision(d, this.thing, s);
             if(this.thing == null)
-                tmp = t.AcceptMove(this);
+                tmp += t.AcceptMove(this);
         }
         return tmp;
     }

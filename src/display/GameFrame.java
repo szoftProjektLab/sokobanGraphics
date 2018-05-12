@@ -65,12 +65,14 @@ public class GameFrame extends JFrame {
         contentPane.add(mainPanel, BorderLayout.NORTH);
         mainPanel.setLayout(new BorderLayout(0, 0));
 
-        JLabel labelPlayer1 = new JLabel("<html>Player 1<br/>Score</html>");
+        JLabel labelPlayer1 = new JLabel("<html>Player 1<br/>"+Game.getInstance().getRunning().getPlayer(0).GetPoints()+"</html>");
         mainPanel.add(labelPlayer1,BorderLayout.WEST);
 
 
-        JLabel labelPlayer2 = new JLabel("<html>Player 2<br/>Score</html>");
+        JLabel labelPlayer2 = new JLabel("<html>Player 2<br/>"+Game.getInstance().getRunning().getPlayer(1).GetPoints()+"</html>");
         mainPanel.add(labelPlayer2,BorderLayout.EAST);
+
+
 
         labelGame = new JPanel(){
             @Override
@@ -96,6 +98,9 @@ public class GameFrame extends JFrame {
                         }
                     }
                 }
+                labelPlayer1.setText("<html>Player 1<br/>"+Game.getInstance().getRunning().getPlayer(0).GetPoints()+"</html>");
+                labelPlayer2.setText("<html>Player 2<br/>"+Game.getInstance().getRunning().getPlayer(1).GetPoints()+"</html>");
+
                 //g.drawImage(texture, 0, 0,size.width, size.height,x,y, 60, 60, null);
             }
         };
