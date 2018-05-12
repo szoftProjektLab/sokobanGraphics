@@ -70,10 +70,6 @@ public class Box extends Thing implements IDrawable {
      */
     public int AcceptMove(Wall w){ return 0; }
 
-    public String GetPath()
-    {
-        return "textures/box.jpg";
-    }
     /**
      *Objektum kirajzolása
      * @param x sor

@@ -165,7 +165,7 @@ public class Warehouse {
         for(int i=0;i<getRow();i++){
             for(int j=0;j<getColumn();j++){
                 fields[i][j].Draw(i,j);
-                if(fields[i][j].getThing()!=null)fields[i][j].getThing().Draw(i,j);
+                if(fields[i][j].getThing()!=null){fields[i][j].getThing().Draw(i,j);}
             }
         }
         MenuFrame.getActiveGameFrame().doReinvalidateRepaint();
