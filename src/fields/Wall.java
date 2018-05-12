@@ -57,6 +57,6 @@ public class Wall extends Field implements IDrawable {
     @Override
     public void Draw(int x, int y) {
         String path="textures/Wall.jpg";
-        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
+        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureField(x,y,path);
     }
 }

@@ -155,6 +155,6 @@ public class Player extends Thing implements IDrawable {
         }
         else if(id==2) path="textures/Worker2.png";
 
-        if(!path.equals("")&& MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
+        if(!path.equals("")&& MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureThing(x,y,path);
     }
 }

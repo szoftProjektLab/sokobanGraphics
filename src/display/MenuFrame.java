@@ -99,10 +99,9 @@ public class MenuFrame extends JFrame{
                     {
 
                     }
-                    activeGameFrame.doReinvalidateRepaint();
                     //labelGame.revalidate();
                     //labelGame.repaint();
-                    //Game.getInstance().getRunning().DrawMap();
+                    Game.getInstance().getRunning().DrawMap();
                 }
             }
         });

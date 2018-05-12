@@ -103,7 +103,7 @@ public class Field extends Steppable implements IDrawable {
     @Override
     public void Draw(int x, int y) {
         String path="textures/Field2.jpg";
-        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
+        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureField(x,y,path);
     }
 
 }
