@@ -1,4 +1,5 @@
 package game;
+import display.MenuFrame;
 import enums.Direction;
 import fields.Field;
 import things.Thing;
@@ -140,9 +141,17 @@ public class Warehouse {
     }
 
     public void DrawMap(){
+        String path="textures/oil.png";
+        String path1="textures/honey.png";
         for(int i=0;i<getRow();i++){
-
+            for(int j=0;j<getColumn();j++){
+                fields[i][j].Draw(i,j);
+                if(fields[i][j].getEffect()==0.5&&MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(i,j,path);
+                if(fields[i][j].getEffect()==1.5&&MenuFrame.getActiveGameFrame()!=null)   MenuFrame.getActiveGameFrame().SetTexture(i,j,path1);
+                if(fields[i][j].getThing()!=null)fields[i][j].getThing().Draw(i,j);
+            }
         }
+
     }
     /**
      * Beállítja az összes szomszédját a mezőknek

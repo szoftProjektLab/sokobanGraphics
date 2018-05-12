@@ -1,12 +1,13 @@
 package things;
 
+import display.IDrawable;
 import enums.Direction;
 import fields.Field;
 import fields.Steppable;
 import fields.Wall;
 import game.Warehouse;
 
-public abstract class Thing {
+public abstract class Thing  implements IDrawable {
 
     Warehouse warehouse;
     Steppable field;
@@ -67,4 +68,11 @@ public abstract class Thing {
     {
         field = f;
     }
+    /**
+     *Objektum kirajzolása
+     * @param x sor
+     * @param y oszlop
+     */
+    @Override
+    public void Draw(int x, int y) {}
 }

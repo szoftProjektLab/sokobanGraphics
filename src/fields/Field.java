@@ -1,6 +1,7 @@
 package fields;
 
 import display.IDrawable;
+import display.MenuFrame;
 import enums.Direction;
 import things.*;
 
@@ -85,6 +86,9 @@ public class Field extends Steppable implements IDrawable {
     public void setEffect(double effect) {
         this.effect = effect;
     }
+    public double getEffect() {
+        return this.effect;
+    }
 
 
     /**
@@ -95,10 +99,7 @@ public class Field extends Steppable implements IDrawable {
     @Override
     public void Draw(int x, int y) {
         String path="textures/Field2.jpg";
-
-        //Valahogy kirajzolni az ablakra
-
-
+        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
     }
 
 }

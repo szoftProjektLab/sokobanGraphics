@@ -1,6 +1,7 @@
 package things;
 
 import display.IDrawable;
+import display.MenuFrame;
 import enums.Direction;
 import fields.Field;
 import fields.Wall;
@@ -77,9 +78,6 @@ public class Box extends Thing implements IDrawable {
     @Override
     public void Draw(int x, int y) {
         String path="textures/box.jpg";
-
-        //Valahogy kirajzolni az ablakra
-
-
+        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
     }
 }

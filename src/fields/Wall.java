@@ -1,11 +1,13 @@
 package fields;
 
+import display.IDrawable;
+import display.MenuFrame;
 import enums.Direction;
 import things.Box;
 import things.Player;
 import things.Thing;
 
-public class Wall extends Field {
+public class Wall extends Field implements IDrawable {
 
     /**
      * A szomszédos mező a felőle érkező mozgás igényt ennek meghívásával jelzi.
@@ -40,4 +42,15 @@ public class Wall extends Field {
     }
 
     public int Add(Box b){ return 0;}
+
+    /**
+     *Objektum kirajzolása
+     * @param x sor
+     * @param y oszlop
+     */
+    @Override
+    public void Draw(int x, int y) {
+        String path="textures/Wall.jpg";
+        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
+    }
 }

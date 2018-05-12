@@ -37,7 +37,8 @@ public class Game {
     public void StartGame(String file){
         String line = null;
         running = new Warehouse();
-        running.setPlayerCount(2);
+        int playercount=0;
+
 
         try {
             // BufferedReader-be csomagolt FileReader, ami alapján a raktárat, és azoknak az entitásait felépítjük
@@ -135,12 +136,14 @@ public class Game {
                         case"A":
                             Player a = new Player(1);
                             a.setWarehouse(running);
+                            running.setPlayerCount(++playercount);
                             running.getField(curRow,curColumn).Add(a);
                             break;
                         //Második játékos létrehozása
                         case "B":
                             Player b = new Player(1);
                             b.setWarehouse(running);
+                            running.setPlayerCount(++playercount);
                             running.getField(curRow,curColumn).Add(b);
                             break;
                         //Láda létrehozása (nem ad pontot)

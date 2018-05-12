@@ -1,6 +1,7 @@
 package fields;
 
 import display.IDrawable;
+import display.MenuFrame;
 import things.Player;
 import things.Box;
 
@@ -49,14 +50,10 @@ public class SpecialHole extends Hole implements IDrawable {
         String path1="textures/Hole2.jpg";
 
         if(open==false){
-
+            if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
         }else{
-
+            if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path1);
         }
-
-        //Valahogy kirajzolni az ablakra
-
-
-    }
+}
 
 }

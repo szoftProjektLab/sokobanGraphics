@@ -1,6 +1,7 @@
 package fields;
 
 import display.IDrawable;
+import display.MenuFrame;
 import things.Box;
 import things.Player;
 
@@ -29,9 +30,6 @@ public class Hole extends Field implements IDrawable {
     @Override
     public void Draw(int x, int y) {
         String path="textures/Hole2.jpg";
-
-        //Valahogy kirajzolni az ablakra
-
-
+        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
     }
 }

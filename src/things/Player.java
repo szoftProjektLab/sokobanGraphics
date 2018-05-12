@@ -1,6 +1,7 @@
 package things;
 
 import display.IDrawable;
+import display.MenuFrame;
 import enums.Direction;
 import fields.Field;
 import fields.Wall;
@@ -132,15 +133,12 @@ public class Player extends Thing implements IDrawable {
      */
     @Override
     public void Draw(int x, int y) {
-        String path;
-        if(warehouse.getPlayerCount()==0){
+        String path="";
+        if(warehouse.getPlayerCount()==1){
             path="textures/Worker1.png";
         }
-        else path="textures/Worker2.png";
+        else if(warehouse.getPlayerCount()==2) path="textures/Worker2.png";
 
-
-        //Valahogy kirajzolni az ablakra
-
-
+        if(!path.equals("")&& MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
     }
 }

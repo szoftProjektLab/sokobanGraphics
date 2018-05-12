@@ -2,6 +2,7 @@ package things;
 
 import display.Colours;
 import display.IDrawable;
+import display.MenuFrame;
 import fields.Field;
 
 public class ColouredBox extends Box implements IDrawable {
@@ -51,10 +52,7 @@ public class ColouredBox extends Box implements IDrawable {
     @Override
     public void Draw(int x, int y) {
         String path="textures/box.jpg";
-
-        //Valahogy kirajzolni az ablakra
-
-
+        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path,colour);
     }
 
 

@@ -2,6 +2,7 @@ package fields;
 
 import display.Colours;
 import display.IDrawable;
+import display.MenuFrame;
 import things.ColouredBox;
 
 public class ColouredField extends Field implements IDrawable {
@@ -62,9 +63,6 @@ public class ColouredField extends Field implements IDrawable {
     @Override
     public void Draw(int x, int y) {
         String path="textures/Field2.jpg";
-
-        //Valahogy kirajzolni az ablakra
-
-
+        if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
     }
 }

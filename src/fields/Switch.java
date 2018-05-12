@@ -1,6 +1,7 @@
 package fields;
 
 import display.IDrawable;
+import display.MenuFrame;
 import things.Box;
 
 public class Switch extends Field implements IDrawable {
@@ -50,12 +51,10 @@ public class Switch extends Field implements IDrawable {
         String path1="textures/Switchopen.jpg";
 
         if(active==true){
-
+            if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path);
         }else{
-
+            if(MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTexture(x,y,path1);
         }
-        //Valahogy kirajzolni az ablakra
-
 
     }
 
