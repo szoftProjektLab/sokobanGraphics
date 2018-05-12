@@ -38,7 +38,7 @@ public class Game {
         String line = null;
         running = new Warehouse();
         running.setPlayerCount(2);
-        Prototype.getInstance().AddWarehouse(running);
+
         try {
             // BufferedReader-be csomagolt FileReader, ami alapján a raktárat, és azoknak az entitásait felépítjük
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
@@ -68,59 +68,50 @@ public class Game {
                         case "F":
                             Field f = new Field();
                             running.setField(curRow,curColumn,f);
-                            Prototype.getInstance().AddField(f,"F");
                             break;
                         //Fal létrehozása
                         case"W":
                             Wall w = new Wall();
                             running.setField(curRow,curColumn,w);
-                            Prototype.getInstance().AddField(w,"W");
                             break;
                         //Lyuk létrehozása
                         case "J":
                             Hole h = new Hole();
                             running.setField(curRow,curColumn,h);
-                            Prototype.getInstance().AddField(h,"J");
                             break;
                         //Kapcsoló létrehozása
                         case"S":
                             Switch s = new Switch();
                             running.setField(curRow,curColumn,s);
-                            Prototype.getInstance().AddField(s,"S");
                             break;
                         //Színesmező (végső doboznak a helye) létrehozása
                             case "C":
                                 ColouredField cf = new ColouredField();
                                 running.setField(curRow,curColumn,cf);
-                                Prototype.getInstance().AddField(cf,"C");
                                 break;
                         //Nyitott speciális Lyuk
                         case "L":
                             SpecialHole sh = new SpecialHole();
                             sh.SetOpen(true);
                             running.setField(curRow,curColumn,sh);
-                            Prototype.getInstance().AddField(sh,"L");
                             break;
                         //Zárt speciális lyuk
                             case "Q":
                                 SpecialHole sh2 = new SpecialHole();
                                 sh2.SetOpen(false);
                                 running.setField(curRow,curColumn,sh2);
-                                Prototype.getInstance().AddField(sh2,"Q");
                                 break;
                         //Mézzel bekent mező
                         case"H":
                             Field f2 = new Field();
                             f2.setEffect(0.5);
                             running.setField(curRow,curColumn,f2);
-                            Prototype.getInstance().AddField(f2,"H");
                             break;
                         //Olajjal bekent mező
                         case"O":
                             Field f3 = new Field();
                             f3.setEffect(1.5);
                             running.setField(curRow,curColumn,f3);
-                            Prototype.getInstance().AddField(f3,"O");
                             break;
 
                         default:
@@ -142,32 +133,26 @@ public class Game {
                     {
                         //Első játékos létrehozása
                         case"A":
-                            Player a = new Player();
+                            Player a = new Player(1);
                             a.setWarehouse(running);
-                            Prototype.getInstance().AddPlayer("A",a);
-                            Prototype.getInstance().AddThing(a,"A");
                             running.getField(curRow,curColumn).Add(a);
                             break;
                         //Második játékos létrehozása
                         case "B":
-                            Player b = new Player();
+                            Player b = new Player(1);
                             b.setWarehouse(running);
-                            Prototype.getInstance().AddPlayer("B",b);
-                            Prototype.getInstance().AddThing(b,"B");
                             running.getField(curRow,curColumn).Add(b);
                             break;
                         //Láda létrehozása (nem ad pontot)
                         case"D":
                             Box d = new Box();
                             d.setWarehouse(running);
-                            Prototype.getInstance().AddThing(d,"D");
                             running.getField(curRow,curColumn).Add(d);
                             break;
                         //Színes láda létrehozása (a láda, amit ha a megfelelő helyre tolnak, ad pontot)
                         case "K":
                             ColouredBox k = new ColouredBox();
                             k.setWarehouse(running);
-                            Prototype.getInstance().AddThing(k,"K");
                             running.getField(curRow,curColumn).Add(k);
                             break;
                         //Ha esetleg üresen álló mező jön (Például 'n', akkor nem veszünk fel semmit)
@@ -239,6 +224,5 @@ public class Game {
      */
     public void EndGame(){
             System.out.println("A játék véget ért!");
-            Prototype.getInstance().Clear();
     }
 }

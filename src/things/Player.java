@@ -3,7 +3,6 @@ package things;
 import enums.Direction;
 import fields.Field;
 import fields.Wall;
-import game.Prototype;
 
 public class Player extends Thing {
 
@@ -114,16 +113,14 @@ public class Player extends Thing {
     /**
      * Növeli a Field effect-jének az értékét.
      */
-    public void PlaceHoney(){
-        field.setEffect(1.5);
-        Prototype.getInstance().ReplaceField(field,"H");
+    public void PlaceHoney(double effect){
+        field.setEffect(effect);
     }
 
     /**
      * Csökkenti a Field effect-jének az értékét.
      */
-    public void PlaceOil(){
-        field.setEffect(0.5);
-        Prototype.getInstance().ReplaceField(field,"O");
+    public void PlaceOil(double effect){
+        field.setEffect(effect);
     }
 }
