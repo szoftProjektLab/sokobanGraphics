@@ -75,6 +75,7 @@ public class Player extends Thing implements IDrawable {
      * @param d A mozgás iránya
      */
     public void StartMove(Direction d){
+        System.out.println("lefut startmove");
         Field tmp = field.GetNeighbour(d);
         tmp.TryMove(d, this, strength);
     }
