@@ -71,6 +71,7 @@ public class Player extends Thing implements IDrawable {
 
     /**
      * Az egész mozgatást egy irányba elkezdi,
+     * ha nem fal van a az adott irányban
      * majd pontszámát növeli
      * @param d A mozgás iránya
      */
@@ -97,7 +98,6 @@ public class Player extends Thing implements IDrawable {
      * @param w A kapott fal, amire lépnie kéne.
      * @return 0
      */
-    //////////////////////////// Hiányos, mivan ha falnakmegy magától
     public int AcceptMove(Wall w){
         Die();
         return 0;
