@@ -145,7 +145,7 @@ public class Warehouse {
         String path1="textures/honey.png";
         for(int i=0;i<getRow();i++){
             for(int j=0;j<getColumn();j++){
-                fields[i][j].Draw(60*i,60*j);
+                fields[i][j].Draw(i,j);
                 if(fields[i][j].getThing()!=null)fields[i][j].getThing().Draw(i,j);
             }
         }
