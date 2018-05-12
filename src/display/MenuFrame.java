@@ -2,8 +2,7 @@ package display;
 import game.Game;
 import game.Warehouse;
 
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,8 +12,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import javax.swing.JList;
 import java.awt.event.ActionListener;
 import javax.swing.ListSelectionModel;
@@ -60,6 +57,8 @@ public class MenuFrame extends JFrame{
      */
     private void initialize() {
         setTitle("Menu");
+        Image im = Toolkit.getDefaultToolkit().getImage("textures/icon.jpg");
+        setIconImage(im);
         setResizable(false);
         setBounds(100, 100, 600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
