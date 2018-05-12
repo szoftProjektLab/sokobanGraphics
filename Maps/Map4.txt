@@ -5,7 +5,7 @@ W,W,W,W,W,W,W,W,W,W
 W,F,F,C,J,C,F,F,F,W
 W,F,F,S,J,S,F,F,F,W
 W,F,F,F,Q,F,F,F,F,W
-W,C,J,Q,W,Q,J,J,J,W
+W,J,J,Q,W,Q,J,J,J,W
 W,F,F,F,Q,F,F,F,F,W
 W,F,F,S,J,S,F,F,F,W
 W,F,F,F,J,F,F,F,F,W
