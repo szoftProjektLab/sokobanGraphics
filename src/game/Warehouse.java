@@ -130,6 +130,10 @@ public class Warehouse {
 
     }
 
+    /**
+     * A színes ládák számát ellenőrzi, minden pontadásnál hívódik
+     * A játékosok pontszáma szerint választ nyertest
+     */
     public void checkCB(){
         if (colouredBoxCount==0) {
             // Játék referencia lekérdezése
