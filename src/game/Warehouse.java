@@ -132,6 +132,14 @@ public class Warehouse {
             Game game = Game.getInstance();
              // Véget ér a játék, meghívjuk a singleton Game osztálynak a függvényét
             game.EndGame();
+
+            if (players[0].GetPoints()>players[1].GetPoints()){
+                winnerId=1;
+            }else if (players[0].GetPoints()<players[1].GetPoints()){
+                winnerId=2;
+            }else{
+                winnerId=0; //Döntetlen
+            }
         }
     }
 
