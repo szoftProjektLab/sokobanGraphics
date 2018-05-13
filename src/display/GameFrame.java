@@ -123,23 +123,33 @@ public class GameFrame extends JFrame {
 
                 Warehouse wh = Game.getInstance().getRunning();
 
+
+
                 BufferedImage oilTexture = fieldImages.get("O");
                 BufferedImage honeyTexture = fieldImages.get("HO");
 
                 for(int i=0;i<wh.getRow();i++){
                     for(int j=0;j<wh.getColumn();j++){
-                        texture = fieldTextures[i][j];
-                        g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
-
-                        if(wh.getField(i,j).getEffect()==0.5)
-                            g.drawImage(oilTexture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
-                        else if(wh.getField(i,j).getEffect()==1.5)
-                            g.drawImage(honeyTexture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
-
-                        if(wh.getField(i,j).getThing()!=null) {
-                            texture = thingTextures[i][j];
+                        if (Game.getInstance().getEndGame()){
+                            texture = fieldImages.get("W");
                             g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
+                        }else{
+                            texture = fieldTextures[i][j];
+                            g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
+
+                            if(wh.getField(i,j).getEffect()==0.5)
+                                g.drawImage(oilTexture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
+                            else if(wh.getField(i,j).getEffect()==1.5)
+                                g.drawImage(honeyTexture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
+
+                            if(wh.getField(i,j).getThing()!=null) {
+                                texture = thingTextures[i][j];
+                                g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
+                            }
                         }
+
+
+
                     }
                 }
                 labelPlayer1.setText("P1 - "+Game.getInstance().getRunning().getPlayer(0).GetPoints());
@@ -214,11 +224,18 @@ public class GameFrame extends JFrame {
 
 
                 //////////////////////////////////////////////////////////////////////
+                /*
                 if (Game.getInstance().getEndGame()){
+
+
                     JPanel endpanel = new JPanel();
                     endpanel.setBackground(new Color(0, 0, 0, 123));
+                    endpanel.setAlignmentX(0);
+                    endpanel.setAlignmentY(0);
+
                     add(endpanel);
                 }
+                */
                 //////////////////////////////////////////////////////////////////////
 
                 wh.DrawMap();

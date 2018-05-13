@@ -4,8 +4,6 @@
     <list default="true" id="1c1c32e6-897b-493c-9212-3ce8d75c85a9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/display/GameFrame.java" afterPath="$PROJECT_DIR$/src/display/GameFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/display/MenuFrame.java" afterPath="$PROJECT_DIR$/src/display/MenuFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Game.java" afterPath="$PROJECT_DIR$/src/game/Game.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -175,15 +173,15 @@
       <file leaf-file-name="GameFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/display/GameFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="221" column="86" lean-forward="false" selection-start-line="221" selection-start-column="86" selection-end-line="221" selection-end-column="86" />
+            <state relative-caret-position="293">
+              <caret line="237" column="18" lean-forward="false" selection-start-line="237" selection-start-column="18" selection-end-line="237" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1498#1521#0" expanded="true" />
-                <element signature="e#3684#5403#0" expanded="true" />
-                <element signature="e#5402#5403#0" expanded="true" />
-                <element signature="e#6503#8952#0" expanded="true" />
-                <element signature="e#8951#8952#0" expanded="true" />
+                <element signature="e#3684#5796#0" expanded="true" />
+                <element signature="e#5795#5796#0" expanded="true" />
+                <element signature="e#6896#9480#0" expanded="true" />
+                <element signature="e#9479#9480#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -691,11 +689,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526153475751</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Félkész endgame overlay">
+      <created>1526226217400</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1526226217400</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40143000" />
+    <option name="totallyTimeSpent" value="42932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -806,7 +811,8 @@
     <MESSAGE value="Bugfix v4 (Map3)" />
     <MESSAGE value="WASD, Arrow mozgások" />
     <MESSAGE value="DrawMap: nincs fájl művelet, képek hashmap-ből" />
-    <option name="LAST_COMMIT_MESSAGE" value="DrawMap: nincs fájl művelet, képek hashmap-ből" />
+    <MESSAGE value="Félkész endgame overlay" />
+    <option name="LAST_COMMIT_MESSAGE" value="Félkész endgame overlay" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -900,10 +906,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1498#1521#0" expanded="true" />
-            <element signature="e#3684#5403#0" expanded="true" />
-            <element signature="e#5402#5403#0" expanded="true" />
-            <element signature="e#6503#8952#0" expanded="true" />
-            <element signature="e#8951#8952#0" expanded="true" />
+            <element signature="e#3684#5796#0" expanded="true" />
+            <element signature="e#5795#5796#0" expanded="true" />
+            <element signature="e#6896#9480#0" expanded="true" />
+            <element signature="e#9479#9480#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1284,15 +1290,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/display/GameFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="221" column="86" lean-forward="false" selection-start-line="221" selection-start-column="86" selection-end-line="221" selection-end-column="86" />
+        <state relative-caret-position="293">
+          <caret line="237" column="18" lean-forward="false" selection-start-line="237" selection-start-column="18" selection-end-line="237" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1498#1521#0" expanded="true" />
-            <element signature="e#3684#5403#0" expanded="true" />
-            <element signature="e#5402#5403#0" expanded="true" />
-            <element signature="e#6503#8952#0" expanded="true" />
-            <element signature="e#8951#8952#0" expanded="true" />
+            <element signature="e#3684#5796#0" expanded="true" />
+            <element signature="e#5795#5796#0" expanded="true" />
+            <element signature="e#6896#9480#0" expanded="true" />
+            <element signature="e#9479#9480#0" expanded="true" />
           </folding>
         </state>
       </provider>
