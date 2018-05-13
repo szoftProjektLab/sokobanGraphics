@@ -226,7 +226,18 @@ public class GameFrame extends JFrame {
                 //////////////////////////////////////////////////////////////////////
 
                 if (Game.getInstance().getEndGame()){
-                    System.out.println("Nyertes: P" + Game.getInstance().getRunning().getWinnerId());
+                    int winnerId=Game.getInstance().getRunning().getWinnerId();
+                    JLabel endLabel = new JLabel();
+                    if(winnerId==0)
+                        endLabel.setText("It's a draw!");
+                    else
+                        endLabel.setText("Player "+winnerId+" wins!");
+
+                    endLabel.setFont(new Font("Arial Black", Font.BOLD, 50));
+                    endLabel.setForeground(Color.WHITE);
+                    endLabel.setBounds(60, 65, 86, 30);
+                    labelGame.add(endLabel);
+
                 }
 
                 //////////////////////////////////////////////////////////////////////
