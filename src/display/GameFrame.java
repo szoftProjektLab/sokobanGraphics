@@ -1,7 +1,7 @@
 package display;
+
 import enums.Direction;
 import game.Game;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,13 +10,11 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
-import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
 import game.*;
 import javax.swing.border.EmptyBorder;
 
@@ -112,6 +110,9 @@ public class GameFrame extends JFrame {
         mainPanel.setBackground(Color.BLACK);
         mainPanel.setLayout(new BorderLayout(0, 0));
 
+        /**
+         * A Pontszámot megjelenítő JLabel-ek
+         */
         JLabel labelPlayer1 = new JLabel("P1 -"+Game.getInstance().getRunning().getPlayer(0).GetPoints());
         labelPlayer1.setFont(new Font("Arial Black", Font.BOLD, 22));
         labelPlayer1.setForeground(Color.WHITE);
@@ -221,10 +222,23 @@ public class GameFrame extends JFrame {
                         break;
                 }
 
+
+
+                /**
+                 * Ha a játék véget ér, akkor kiír egy alternatív menüt
+                 */
                 if (Game.getInstance().getEndGame()){
 
                     labelGame.setLayout(null);
+
+                    /**
+                     * A nyertes játékos azonosítója
+                     */
                     int winnerId=Game.getInstance().getRunning().getWinnerId();
+
+                    /**
+                     * JLabel az eredmény kiírására
+                     */
                     JLabel endLabel = new JLabel();
                     endLabel.setFont(new Font("Arial Black", Font.BOLD, 50));
                     endLabel.setForeground(Color.WHITE);
@@ -236,8 +250,12 @@ public class GameFrame extends JFrame {
                         endLabel.setText("It's a draw!");
                     else
                         endLabel.setText("Player "+winnerId+" wins!");
+
                     labelGame.add(endLabel);
 
+                    /**
+                     * Gomb amely visszalép a menübe és bezárja az aktív GameFrame-et
+                     */
                     JButton bbacktomenu = new JButton("Menu");
                     bbacktomenu.setFont(new Font("Arial", Font.BOLD, 16));
                     bbacktomenu.setBounds(190, 500, 130, 40);
@@ -256,6 +274,9 @@ public class GameFrame extends JFrame {
 
                     labelGame.add(bbacktomenu);
 
+                    /**
+                     * Gomb amely kilépteti a programot
+                     */
                     JButton bexit = new JButton("Exit");
                     bexit.setFont(new Font("Arial", Font.BOLD, 16));
                     bexit.setBounds(455, 500, 130, 40);
