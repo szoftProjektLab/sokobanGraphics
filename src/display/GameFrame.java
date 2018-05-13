@@ -224,18 +224,11 @@ public class GameFrame extends JFrame {
 
 
                 //////////////////////////////////////////////////////////////////////
-                /*
+
                 if (Game.getInstance().getEndGame()){
-
-
-                    JPanel endpanel = new JPanel();
-                    endpanel.setBackground(new Color(0, 0, 0, 123));
-                    endpanel.setAlignmentX(0);
-                    endpanel.setAlignmentY(0);
-
-                    add(endpanel);
+                    System.out.println("Nyertes: P" + Game.getInstance().getRunning().getWinnerId());
                 }
-                */
+
                 //////////////////////////////////////////////////////////////////////
 
                 wh.DrawMap();

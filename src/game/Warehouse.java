@@ -134,17 +134,29 @@ public class Warehouse {
             game.EndGame();
         }
     }
+
+    private int winnerId=0;
     /**
      *  Játékosok számát csökkentő függvény, véget vet a játéknak, ha egy feltétel teljesül
      */
-    public void PDecrease(){
+    public void PDecrease(int id){
         playerCount--;
         if(playerCount==1) {
              // Játék referencia lekérdezése
             Game game = Game.getInstance();
              // Véget ér a játék, meghívjuk a singleton Game osztálynak a függvényét
             game.EndGame();
+
+            if(id==1){
+                winnerId=2;
+            }else{
+                winnerId=1;
+            }
         }
+    }
+
+    public int getWinnerId(){
+        return winnerId;
     }
 
     /**

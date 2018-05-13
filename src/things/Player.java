@@ -126,7 +126,7 @@ public class Player extends Thing implements IDrawable {
      * a játékosok számát csökkenti eggyel.
      */
     public void Die(){
-       warehouse.PDecrease();
+       warehouse.PDecrease(id);
        field.Remove(this);
     }
 
