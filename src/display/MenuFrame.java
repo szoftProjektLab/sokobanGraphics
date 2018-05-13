@@ -153,7 +153,6 @@ public class MenuFrame extends JFrame{
             model.addElement("Map"+i);
         list.setModel(model);
 
-
         listScroller.setBounds(225, 100, 150, 200);
         listScroller.setBorder(BorderFactory.createEmptyBorder());
         listScroller.getViewport().setBackground(Color.RED);

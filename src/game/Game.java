@@ -233,7 +233,14 @@ public class Game {
     /**
      * Játék befejezését biztosító folyamat
      */
+    private boolean endgame=false;
+
     public void EndGame(){
-            System.out.println("A játék véget ért!");
+        System.out.println("A játék véget ért!");
+        endgame=true;
+    }
+
+    public boolean getEndGame(){
+        return endgame;
     }
 }

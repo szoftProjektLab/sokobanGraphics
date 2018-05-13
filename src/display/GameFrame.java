@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
+import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -79,6 +80,7 @@ public class GameFrame extends JFrame {
         }
         return result;
     }
+
     /**
      * Frame-et megvalósító konstruktor
      */
@@ -92,6 +94,7 @@ public class GameFrame extends JFrame {
         contentPane.setBorder(new EmptyBorder(0, 0, 0, -6));
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
+
 
         Warehouse wh = Game.getInstance().getRunning();
         thingTextures = new BufferedImage[wh.getRow()][wh.getColumn()];
@@ -166,6 +169,9 @@ public class GameFrame extends JFrame {
         this.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent arg) {
+                if (Game.getInstance().getEndGame()){
+                    return;
+                }
                 Warehouse wh = Game.getInstance().getRunning();
                 switch (arg.getKeyCode()){
                     case KeyEvent.VK_W:
@@ -205,6 +211,16 @@ public class GameFrame extends JFrame {
                         wh.getPlayer(1).PlaceOil(0.5);
                         break;
                 }
+
+
+                //////////////////////////////////////////////////////////////////////
+                if (Game.getInstance().getEndGame()){
+                    JPanel endpanel = new JPanel();
+                    endpanel.setBackground(new Color(0, 0, 0, 123));
+                    add(endpanel);
+                }
+                //////////////////////////////////////////////////////////////////////
+
                 wh.DrawMap();
                 doReinvalidateRepaint();
             }
@@ -243,7 +259,11 @@ public class GameFrame extends JFrame {
         thingTextures[x][y] = texture;
     }
 
-
+    /**
+     * BufferedImage típusú változók érték szerinti átadásához
+     * @param bi Klónozandó BufferedImage
+     * @return bemeneti paraméter értékével megegyező új BufferedImage példány
+     */
     static BufferedImage deepCopy(BufferedImage bi) {
         ColorModel cm = bi.getColorModel();
         boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
