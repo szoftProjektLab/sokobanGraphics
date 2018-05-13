@@ -6,17 +6,22 @@ import enums.Direction;
 import fields.Field;
 import fields.Wall;
 
+/**
+ * Játékost megvalósító osztály
+ */
 public class Player extends Thing implements IDrawable {
 
     /** A játékos ponjai */
     private int points;
     /** A játékos ereje */
     private double strength;
-
+    /**
+     * Játékos azonosítója, konstruktorban adunk értéket
+     */
     private int id;
 
     /**
-     * A játékos mozgási ereje 3
+     * A játékos mozgási ereje 3, azonosító beálíltása
      */
     public Player(int id1) {
         points = 0;
@@ -68,7 +73,6 @@ public class Player extends Thing implements IDrawable {
         return 0;
     }
 
-
     /**
      * Az egész mozgatást egy irányba elkezdi,
      * ha nem fal van a az adott irányban
@@ -80,17 +84,18 @@ public class Player extends Thing implements IDrawable {
         int p;
         if(! (tmp instanceof Wall)) {
             p = tmp.TryMove(d, this, strength);
-            points += p;
+            AddPoints(p);
         }
     }
 
+    /**
+     * Pontokat visszaadó metódus
+     * @return Pontok
+     */
     public int GetPoints()
     {
         return points;
     }
-
-
-
 
     /**
      * Megöli a falnak tolt játékost, Wall paraméter esetén fut le ez a metódus
@@ -101,8 +106,6 @@ public class Player extends Thing implements IDrawable {
         Die();
         return 0;
     }
-
-
 
     /**
      * Rálépteti a Player-t a kapott Field-re,
@@ -157,7 +160,6 @@ public class Player extends Thing implements IDrawable {
             path="W2";
             //path="textures/Worker2.png";
         }
-
         if(!path.equals("")&& MenuFrame.getActiveGameFrame()!=null)MenuFrame.getActiveGameFrame().SetTextureThing(x,y,path);
     }
 }

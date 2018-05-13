@@ -5,6 +5,9 @@ import display.IDrawable;
 import display.MenuFrame;
 import fields.Field;
 
+/**
+ * Színes Ládát megvalósító osztály
+ */
 public class ColouredBox extends Box implements IDrawable {
 
     private Colours colour;
@@ -44,7 +47,11 @@ public class ColouredBox extends Box implements IDrawable {
         return tmp;
     }
 
-
+    /**
+    *Objektum kirajzolása
+     * @param x sor
+     * @param y oszlop
+     */
     @Override
     public void Draw(int x, int y) {
         //String path="textures/box.jpg";

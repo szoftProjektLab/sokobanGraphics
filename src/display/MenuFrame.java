@@ -22,40 +22,55 @@ import java.awt.event.ActionEvent;
 
 public class MenuFrame extends JFrame{
 
+    /**
+     * Kép betöltésére használt string változó
+     */
     private String globalVariable = null;
+    /**
+     * Háttérképet tároló BufferedImage
+     */
     private BufferedImage background = null;
+    /**
+     *  Aktív játék ablakra referencia
+     */
     private static GameFrame activeGameFrame;
-    private JFrame frmMenu;
+    /**
+     * Fő JPanel, amin a JList, és a háttérkép panele, egy JLabel illetve gombok vannak
+     */
+    private JPanel mainPanel;
+    /**
+     * Háttérkép JPanel-ja, ahova a háttérkép kerül
+     */
+    private JPanel backgroundPanel;
+    /**
+     * Lista, amiből a pályákat lehet kiválasztani
+     */
+    private JList<String> list;
+    /**
+     * Default model Listához felhasználva
+     */
+    private DefaultListModel<String> model;
+    /**
+     * Görgethetőséget megvalósító JScrollPane
+     */
+    private JScrollPane listScroller;
+    /**
+     * Szöveget kiíró JLabel
+     */
+    private JLabel labelMenu;
+    /**
+     * Start gomb
+     */
+    private JButton btnStart;
+    /**
+     * Exit gomb
+     */
+    private JButton btnExit;
 
     /**
-     * Create the application.
+     * Ablak létrehozása
      */
     public MenuFrame() {
-
-        initialize();
-    }
-
-    private BufferedImage loadImage(){
-        if(globalVariable == null)
-            return null;
-        BufferedImage result = null;
-
-        try {
-            result = ImageIO.read(new File("Maps/"+globalVariable+".jpg"));
-        } catch (IOException e) {
-            System.out.println("Nem található a kiválasztott pálya!");
-        }
-        return result;
-    }
-
-    public static GameFrame getActiveGameFrame()
-    {
-        return activeGameFrame;
-    }
-    /**
-     * Initialize the contents of the frame.
-     */
-    private void initialize() {
         setTitle("Sokoban");
         Image im = Toolkit.getDefaultToolkit().getImage("textures/icon.jpg");
         setIconImage(im);
@@ -63,10 +78,10 @@ public class MenuFrame extends JFrame{
         setBounds(100, 100, 600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel mainPanel = new JPanel(null);
+        mainPanel = new JPanel(null);
         getContentPane().add(mainPanel);
 
-        JButton btnExit = new JButton();
+        btnExit = new JButton();
         btnExit.setText("Exit");
 
         btnExit.setActionCommand("btnExit");
@@ -80,7 +95,7 @@ public class MenuFrame extends JFrame{
         btnExit.setBounds(225, 311, 66, 24);
         mainPanel.add(btnExit);
 
-        JButton btnStart = new JButton("Start");
+        btnStart = new JButton("Start");
         btnStart.setBounds(309, 312, 66, 23);
         mainPanel.add(btnStart);
 
@@ -98,14 +113,14 @@ public class MenuFrame extends JFrame{
             }
         });
 
-        JList<String> list = new JList<String>();
+        list = new JList<String>();
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         list.setVisibleRowCount(-1);
 
-        JScrollPane listScroller = new JScrollPane(list);
+        listScroller = new JScrollPane(list);
         listScroller.setPreferredSize(new Dimension(250, 80));
 
-        DefaultListModel<String> model = new DefaultListModel<>();
+        model = new DefaultListModel<>();
         for (int i = 1; i < 6; i++)
             model.addElement("Map"+i);
         list.setModel(model);
@@ -114,12 +129,12 @@ public class MenuFrame extends JFrame{
         listScroller.setBounds(225, 100, 150, 200);
         mainPanel.add(listScroller);
 
-        JLabel labelMenu = new JLabel("Menu");
+        labelMenu = new JLabel("Menu");
         labelMenu.setFont(new Font("TimesRoman", Font.PLAIN, 20));
         labelMenu.setBounds(275, 65, 66, 30);
         mainPanel.add(labelMenu);
 
-        JPanel backgroundPanel = new JPanel() {
+        backgroundPanel = new JPanel() {
             @Override
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -137,19 +152,40 @@ public class MenuFrame extends JFrame{
 
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
-            public void valueChanged(ListSelectionEvent arg0) {
-                if (!arg0.getValueIsAdjusting()) {
-
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {
                     globalVariable =  list.getSelectedValue().toString();
                     background = loadImage();
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
                     mainPanel.revalidate();
                     mainPanel.repaint();
-                    //labelMenu.setText("Maps//"+list.getSelectedValue().toString());
                 }
             }
         });
+    }
 
+    /**
+     * Képbetöltéshez felhasznált metódus
+     * @return betöltött kép
+     */
+    private BufferedImage loadImage(){
+        if(globalVariable == null)
+            return null;
+        BufferedImage result = null;
+        try {
+            result = ImageIO.read(new File("Maps/"+globalVariable+".jpg"));
+        } catch (IOException e) {
+            System.out.println("Nem található a kiválasztott pálya!");
+        }
+        return result;
+    }
+    /**
+     * Játékablakot visszaadó függvény
+     * @return játékablak
+     */
+    public static GameFrame getActiveGameFrame()
+    {
+        return activeGameFrame;
     }
 }

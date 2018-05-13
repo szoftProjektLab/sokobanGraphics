@@ -18,26 +18,60 @@ import game.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
+/**
+ * Játékot megvalósító ablak
+ */
 public class GameFrame extends JFrame {
 
+    /**
+     *  Fő Jpanel amin az többi alpanel található
+     */
     private JPanel contentPane;
+    /**
+     * Kép betöltésére használt string változó
+     */
     private String globalVariable = null;
+    /**
+     * Kép betöltését eltároló BufferedImage
+     */
     private BufferedImage texture = null;
+    /**
+     * Scoreboard-ot és a labelGame-et tároló JPanel
+     */
     private JPanel mainPanel;
+    /**
+     * A Panel, amire a játék van rajzolva
+     */
     private JPanel labelGame;
+    /**
+     * BufferedImage mátrix, ahol a tárgyak textúráját tároljuk
+     */
     private BufferedImage thingTextures[][];
+    /**
+     * BufferedImage mátrix, ahol a fieldek textúráját tároljuk
+     */
     private BufferedImage fieldTextures[][];
-
-    private int x, y;
-
+    /**
+     * Előre eltárolt felhasznált képek HashMap-ja String kulcsszavakkal
+     */
     private HashMap<String, BufferedImage> fieldImages = new HashMap<String, BufferedImage>();
+    /**
+     * Player1 játékos Score-ját megjelenítő JLabel
+     */
+    private JLabel labelPlayer1;
+    /**
+     * Player2 játékos Score-ját megjelenítő JLabel
+     */
+    private JLabel labelPlayer2;
 
-
+    /**
+     * Képbetöltéshez felhasznált metódus
+     * @return betöltött kép
+     */
     private BufferedImage loadImage(){
         if(globalVariable == null)
             return null;
         BufferedImage result = null;
-
         try {
             result = ImageIO.read(new File(globalVariable));
         } catch (IOException e) {
@@ -46,7 +80,7 @@ public class GameFrame extends JFrame {
         return result;
     }
     /**
-     * Create the frame.
+     * Frame-et megvalósító konstruktor
      */
     public GameFrame() {
         setTitle("Sokoban");
@@ -67,40 +101,32 @@ public class GameFrame extends JFrame {
         contentPane.add(mainPanel, BorderLayout.NORTH);
         mainPanel.setLayout(new BorderLayout(0, 0));
 
-        JLabel labelPlayer1 = new JLabel("<html>Player 1<br/>"+Game.getInstance().getRunning().getPlayer(0).GetPoints()+"</html>");
+        labelPlayer1 = new JLabel("<html>Player 1<br/>"+Game.getInstance().getRunning().getPlayer(0).GetPoints()+"</html>");
         mainPanel.add(labelPlayer1,BorderLayout.WEST);
 
-
-        JLabel labelPlayer2 = new JLabel("<html>Player 2<br/>"+Game.getInstance().getRunning().getPlayer(1).GetPoints()+"</html>");
+        labelPlayer2 = new JLabel("<html>Player 2<br/>"+Game.getInstance().getRunning().getPlayer(1).GetPoints()+"</html>");
         mainPanel.add(labelPlayer2,BorderLayout.EAST);
-
-
 
         labelGame = new JPanel(){
             @Override
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                Dimension size = getSize();
 
-                //g.drawImage(texture,x,y,null);
                 Warehouse wh = Game.getInstance().getRunning();
 
-                int width = getWidth();
-                int height = getHeight();
                 BufferedImage oilTexture = fieldImages.get("O");
                 BufferedImage honeyTexture = fieldImages.get("HO");
 
                 for(int i=0;i<wh.getRow();i++){
                     for(int j=0;j<wh.getColumn();j++){
                         texture = fieldTextures[i][j];
-
                         g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
-                        if(wh.getField(i,j).getEffect()==0.5){                        System.out.println(wh.getField(i,j).getEffect());
 
-                            g.drawImage(oilTexture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);}
-                        else if(wh.getField(i,j).getEffect()==1.5){                        System.out.println(wh.getField(i,j).getEffect());
+                        if(wh.getField(i,j).getEffect()==0.5)
+                            g.drawImage(oilTexture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
+                        else if(wh.getField(i,j).getEffect()==1.5)
+                            g.drawImage(honeyTexture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
 
-                            g.drawImage(honeyTexture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);}
                         if(wh.getField(i,j).getThing()!=null) {
                             texture = thingTextures[i][j];
                             g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
@@ -109,13 +135,12 @@ public class GameFrame extends JFrame {
                 }
                 labelPlayer1.setText("<html>Player 1<br/>"+Game.getInstance().getRunning().getPlayer(0).GetPoints()+"</html>");
                 labelPlayer2.setText("<html>Player 2<br/>"+Game.getInstance().getRunning().getPlayer(1).GetPoints()+"</html>");
-
-                //g.drawImage(texture, 0, 0,size.width, size.height,x,y, 60, 60, null);
             }
         };
         contentPane.add(labelGame, BorderLayout.CENTER);
         labelGame.setLayout(new GridLayout(1, 0, 0, 0));
 
+        //Bufferelés
         globalVariable="textures/Field2.jpg"; fieldImages.put("F", loadImage());
         globalVariable="textures/Hole2.jpg"; fieldImages.put("H", loadImage());
         globalVariable="textures/Switchclosed.jpg"; fieldImages.put("SC", loadImage());
@@ -129,6 +154,9 @@ public class GameFrame extends JFrame {
 
         globalVariable=null;
 
+        /**
+         * Mozgást és olaj/méz lehelyezést megvalósító KeyListener
+         */
         this.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent arg) {
@@ -175,34 +203,40 @@ public class GameFrame extends JFrame {
                 doReinvalidateRepaint();
             }
         });
-
     }
+
+    /**
+     * A játék paneljének jelezzük, elévült a tartalma, frissítsen
+     */
     public void doReinvalidateRepaint()
     {
-        //texture = loadImage();
         labelGame.revalidate();
         labelGame.repaint();
     }
 
+    /**
+     * Field Textúrát beállító függvény
+     * @param x Field sora
+     * @param y Field oszlopa
+     * @param path  Field elérhetősége a HashMap-ben (String kulcs)
+     */
     public void SetTextureField(int x, int y, String path)
     {
-        this.x = x;
-        this.y = y;
-        //this.globalVariable = path;
-        //texture = loadImage();
-        texture=fieldImages.get(path);//OK
+        texture=fieldImages.get(path);
         fieldTextures[x][y] = texture;
     }
-
+    /**
+     * Thing Textúrát beállító függvény
+     * @param x Thing sora
+     * @param y Thing oszlopa
+     * @param path  Thing elérhetősége a HashMap-ben (String kulcs)
+     */
     public void SetTextureThing(int x, int y, String path)
     {
-        this.x = x;
-        this.y = y;
-        //this.globalVariable = path;
-        //texture = loadImage();
         texture=fieldImages.get(path);
         thingTextures[x][y] = texture;
     }
+
 
     static BufferedImage deepCopy(BufferedImage bi) {
         ColorModel cm = bi.getColorModel();
@@ -211,14 +245,14 @@ public class GameFrame extends JFrame {
         return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
     }
 
-    public void SetTextureField(int x, int y, String path, Colours c) {
-        this.x = x;
-        this.y = y;
-        //this.globalVariable = path;
-        //texture = loadImage();
-
-        texture= deepCopy(fieldImages.get(path));//OK
-
+    /**
+     * Átszínezést megvalósító metódus
+     * @param c Szín szerint újraszínezés
+     * @param texture   A kép, amin dolgozunk
+     * @return  Újraszínezett kép
+     */
+    public BufferedImage Repaint(Colours c, BufferedImage texture)
+    {
         for (int col = 0; col < texture.getWidth(); col++) {
             for (int row = 0; row < texture.getHeight(); row++) {
                 Color color = new Color(texture.getRGB(col, row));
@@ -230,36 +264,35 @@ public class GameFrame extends JFrame {
                 int r_b = g * c.getGreen() / 255;
                 int r_c = b * c.getBlue() / 255;
 
-
                 texture.setRGB(col, row, new Color(r_a, r_b, r_c).getRGB());
             }
         }
+        return texture;
+    }
+
+    /**
+     * ColouredField textúráját beállító függvény
+     * @param x ColouredField sora
+     * @param y ColouredField oszlopa
+     * @param path  ColouredField elérése, ami a HashMap-en String kulcs
+     * @param c ColouredField színe
+     */
+    public void SetTextureField(int x, int y, String path, Colours c) {
+        texture= deepCopy(fieldImages.get(path));//OK
+        texture = Repaint(c,texture);
         fieldTextures[x][y] = texture;
     }
 
-
+    /**
+     * ColouredBox textúráját beállító függvény
+     * @param x ColouredBox sora
+     * @param y ColouredBox oszlopa
+     * @param path  ColouredBox elérése, ami a HashMap-en String kulcs
+     * @param c ColouredBox színe
+     */
         public void SetTextureThing(int x, int y, String path, Colours c) {
-            this.x = x;
-            this.y = y;
-
-            //this.globalVariable = path;
-            //texture = loadImage();
             texture= deepCopy(fieldImages.get(path));
-
-            for (int col = 0; col < texture.getWidth(); col++) {
-                for (int row = 0; row < texture.getHeight(); row++) {
-                    Color color = new Color(texture.getRGB(col, row));
-                    int r = color.getRed();
-                    int g = color.getGreen();
-                    int b = color.getBlue();
-
-                    int r_a = r * c.getRed() / 255;
-                    int r_b = g * c.getGreen() / 255;
-                    int r_c = b * c.getBlue() / 255;
-
-                    texture.setRGB(col, row, new Color(r_a, r_b, r_c).getRGB());
-                }
-            }
+            texture = Repaint(c,texture);
             thingTextures[x][y] = texture;
     }
 }

@@ -5,6 +5,9 @@ import display.IDrawable;
 import display.MenuFrame;
 import things.ColouredBox;
 
+/**
+ * Színezmezőt megvalósító osztály
+ */
 public class ColouredField extends Field implements IDrawable {
 
     /** A színe */

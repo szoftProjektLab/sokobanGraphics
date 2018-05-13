@@ -6,10 +6,15 @@ import things.Player;
 import things.Box;
 import things.ColouredBox;
 
+/**
+ * Speciális lyukat megvalósító osztály
+ */
 public class SpecialHole extends Hole implements IDrawable {
 
+    /**
+     * Speciális lyuk állapotát tárolja
+     */
     private boolean open = false;
-
     /**
      * A rálépő Box meghívja, ha nyitva van, megsemmisíti.
      * @param b A rálépő Box
@@ -22,6 +27,11 @@ public class SpecialHole extends Hole implements IDrawable {
         return 0;
     }
 
+    /**
+     * SzínesLáda interakciót megvalósító metódus
+     * @param b SzínesLáda
+     * @return Interakció értéke
+     */
     public int Interact(ColouredBox b){
         if(open){
             b.Die();

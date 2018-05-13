@@ -6,6 +6,9 @@ import things.ColouredBox;
 import things.Player;
 import things.Thing;
 
+/**
+ * Ráléphetők absztrakt ősosztálya
+ */
 public abstract class Steppable {
 
     /** A leszármazotton lévő Thing*/

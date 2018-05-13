@@ -5,6 +5,9 @@ import display.MenuFrame;
 import things.Box;
 import things.ColouredBox;
 
+/**
+ * Kapcsolót megvalósító osztály
+ */
 public class Switch extends Field implements IDrawable {
 
     /** A Switch-hez tartozó speciális lyuk */

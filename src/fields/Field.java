@@ -8,6 +8,9 @@ import things.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Mezőt megvalósító osztály
+ */
 public class Field extends Steppable implements IDrawable {
 
     /** A Field szomszédos Field-jei*/
@@ -85,7 +88,6 @@ public class Field extends Steppable implements IDrawable {
      */
     public void setEffect(double effect) {
         this.effect = effect;
-        System.out.println("beallítva:"+effect);
     }
     public double getEffect() {
         return this.effect;

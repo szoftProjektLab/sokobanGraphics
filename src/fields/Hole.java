@@ -6,6 +6,9 @@ import things.Box;
 import things.ColouredBox;
 import things.Player;
 
+/**
+ * Lyukat megvalósító osztály
+ */
 public class Hole extends Field implements IDrawable {
 
     /**
@@ -18,10 +21,20 @@ public class Hole extends Field implements IDrawable {
         return 0;
     }
 
+    /**
+     * Amely Box rálép az meghívja, a Hole azt megsemmisíti.
+     * @param b A rálépő Box
+     * @return 0
+     */
     public int Interact(Box b){
         b.Die();
         return 0;
     }
+    /**
+     * Amely ColouredBox rálép az meghívja, a Hole azt megsemmisíti.
+     * @param b A rálépő ColouredBox
+     * @return 0
+     */
     public int Interact(ColouredBox b){
         b.Die();
         return 0;

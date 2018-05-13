@@ -10,6 +10,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Játékot megvalósító osztály
+ */
 public class Game {
 
     /**

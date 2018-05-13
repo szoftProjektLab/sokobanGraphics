@@ -1,5 +1,8 @@
 package display;
 
+/**
+ * Kirajzolás Interfész
+ */
 public interface IDrawable {
     /**
      *Objektum kirajzolása

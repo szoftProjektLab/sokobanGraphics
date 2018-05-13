@@ -7,6 +7,9 @@ import fields.Steppable;
 import fields.Wall;
 import game.Warehouse;
 
+/**
+ * Tárgyak absztrakt ősosztálya
+ */
 public abstract class Thing  implements IDrawable {
 
     Warehouse warehouse;
@@ -67,11 +70,6 @@ public abstract class Thing  implements IDrawable {
     public void SetField(Steppable f)
     {
         field = f;
-    }
-
-    public String GetPath()
-    {
-        return null;
     }
 
     /**

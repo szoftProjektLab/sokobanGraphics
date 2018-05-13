@@ -6,6 +6,9 @@ import enums.Direction;
 import fields.Field;
 import fields.Wall;
 
+/**
+ * Ládát megvalósító osztály
+ */
 public class Box extends Thing implements IDrawable {
 
     /**

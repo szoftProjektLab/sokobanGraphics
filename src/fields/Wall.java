@@ -7,6 +7,9 @@ import things.Box;
 import things.Player;
 import things.Thing;
 
+/**
+ * Falat megvalósító osztály
+ */
 public class Wall extends Field implements IDrawable {
 
     /**
@@ -35,6 +38,11 @@ public class Wall extends Field implements IDrawable {
         return tmp;
     }
 
+    /**
+     * Player-t hozzáadó metódus
+     * @param p A csatolandó Player(Thing)
+     * @return  Interakció értéke
+     */
     public int Add(Player p){
         this.thing = p;
         p.SetField(this);
