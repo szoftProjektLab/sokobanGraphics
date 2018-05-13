@@ -87,13 +87,20 @@ public class GameFrame extends JFrame {
 
                 int width = getWidth();
                 int height = getHeight();
-
+                BufferedImage oilTexture = fieldImages.get("O");
+                BufferedImage honeyTexture = fieldImages.get("HO");
 
                 for(int i=0;i<wh.getRow();i++){
                     for(int j=0;j<wh.getColumn();j++){
                         texture = fieldTextures[i][j];
 
                         g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
+                        if(wh.getField(i,j).getEffect()==0.5){                        System.out.println(wh.getField(i,j).getEffect());
+
+                            g.drawImage(oilTexture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);}
+                        else if(wh.getField(i,j).getEffect()==1.5){                        System.out.println(wh.getField(i,j).getEffect());
+
+                            g.drawImage(honeyTexture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);}
                         if(wh.getField(i,j).getThing()!=null) {
                             texture = thingTextures[i][j];
                             g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
@@ -117,6 +124,8 @@ public class GameFrame extends JFrame {
         globalVariable="textures/Worker1.png";fieldImages.put("W1", loadImage());
         globalVariable="textures/Worker2.png";fieldImages.put("W2", loadImage());
         globalVariable="textures/box.jpg";fieldImages.put("B", loadImage());
+        globalVariable="textures/honey.png";fieldImages.put("HO", loadImage());
+        globalVariable="textures/oil.png";fieldImages.put("O", loadImage());
 
         globalVariable=null;
 
@@ -137,6 +146,12 @@ public class GameFrame extends JFrame {
                     case KeyEvent.VK_D:
                         wh.getPlayer(0).StartMove(Direction.Right);
                         break;
+                    case KeyEvent.VK_E:
+                        wh.getPlayer(0).PlaceHoney(1.5);
+                        break;
+                    case KeyEvent.VK_Q:
+                        wh.getPlayer(0).PlaceOil(0.5);
+                        break;
                     case KeyEvent.VK_UP:
                         wh.getPlayer(1).StartMove(Direction.Up);
                         break;
@@ -148,6 +163,12 @@ public class GameFrame extends JFrame {
                         break;
                     case KeyEvent.VK_DOWN:
                         wh.getPlayer(1).StartMove(Direction.Down);
+                        break;
+                    case KeyEvent.VK_NUMPAD1:
+                        wh.getPlayer(1).PlaceHoney(1.5);
+                        break;
+                    case KeyEvent.VK_NUMPAD2:
+                        wh.getPlayer(1).PlaceOil(0.5);
                         break;
                 }
                 wh.DrawMap();
