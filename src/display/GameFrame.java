@@ -89,7 +89,7 @@ public class GameFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 800, 810);
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setBorder(new EmptyBorder(0, 0, 0, -6));
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
 
@@ -99,12 +99,18 @@ public class GameFrame extends JFrame {
 
         mainPanel = new JPanel();
         contentPane.add(mainPanel, BorderLayout.NORTH);
+        mainPanel.setBorder(new EmptyBorder(5, 155, 5, 160));
+        mainPanel.setBackground(Color.BLACK);
         mainPanel.setLayout(new BorderLayout(0, 0));
 
-        labelPlayer1 = new JLabel("<html>Player 1<br/>"+Game.getInstance().getRunning().getPlayer(0).GetPoints()+"</html>");
+        JLabel labelPlayer1 = new JLabel("P1 -"+Game.getInstance().getRunning().getPlayer(0).GetPoints());
+        labelPlayer1.setFont(new Font("Arial Black", Font.BOLD, 22));
+        labelPlayer1.setForeground(Color.WHITE);
         mainPanel.add(labelPlayer1,BorderLayout.WEST);
 
-        labelPlayer2 = new JLabel("<html>Player 2<br/>"+Game.getInstance().getRunning().getPlayer(1).GetPoints()+"</html>");
+        JLabel labelPlayer2 = new JLabel("P2 -"+Game.getInstance().getRunning().getPlayer(1).GetPoints());
+        labelPlayer2.setFont(new Font("Arial Black", Font.BOLD, 22));
+        labelPlayer2.setForeground(Color.WHITE);
         mainPanel.add(labelPlayer2,BorderLayout.EAST);
 
         labelGame = new JPanel(){
@@ -133,8 +139,8 @@ public class GameFrame extends JFrame {
                         }
                     }
                 }
-                labelPlayer1.setText("<html>Player 1<br/>"+Game.getInstance().getRunning().getPlayer(0).GetPoints()+"</html>");
-                labelPlayer2.setText("<html>Player 2<br/>"+Game.getInstance().getRunning().getPlayer(1).GetPoints()+"</html>");
+                labelPlayer1.setText("P1 - "+Game.getInstance().getRunning().getPlayer(0).GetPoints());
+                labelPlayer2.setText("P2 - "+Game.getInstance().getRunning().getPlayer(1).GetPoints());
             }
         };
         contentPane.add(labelGame, BorderLayout.CENTER);
