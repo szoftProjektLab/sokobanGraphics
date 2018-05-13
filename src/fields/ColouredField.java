@@ -52,7 +52,7 @@ public class ColouredField extends Field implements IDrawable {
     public int Interact(ColouredBox cb){
         int tmp=0;
         if (cb.GetColour()==matchingbox.GetColour()){
-            tmp=1;
+            tmp=10;
             getThing().Die();
         }
         return tmp;
