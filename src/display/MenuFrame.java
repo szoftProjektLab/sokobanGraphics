@@ -164,8 +164,8 @@ public class MenuFrame extends JFrame{
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 Dimension size = getSize();
-               // if(background == null)
-                 //  return;
+                if(background == null)
+                  return;
                 g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
             }
         };
