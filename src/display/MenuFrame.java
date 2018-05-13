@@ -1,7 +1,5 @@
 package display;
 import game.Game;
-import game.Warehouse;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -19,6 +17,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.JLabel;
+import javax.swing.BorderFactory;
 import java.awt.event.ActionEvent;
 
 public class MenuFrame extends JFrame{
@@ -32,13 +31,6 @@ public class MenuFrame extends JFrame{
      * Háttérképet tároló BufferedImage
      */
     private BufferedImage background = null;
-
-
-
-    BufferedImage defaultbackground = null;
-
-
-
 
     /**
      *  Aktív játék ablakra referencia
@@ -101,12 +93,10 @@ public class MenuFrame extends JFrame{
 
 
         try {
-            defaultbackground = ImageIO.read(new File("textures/menubackground.jpg"));
+            background = ImageIO.read(new File("textures/menubackground.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
 
 
 
@@ -143,7 +133,7 @@ public class MenuFrame extends JFrame{
         });
 
         list = new JList<String>();
-        list.setFont(new Font("Arial",Font.BOLD,18));
+        list.setFont(new Font("Arial",Font.BOLD,16));
         list.setFixedCellHeight(40);
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         DefaultListCellRenderer renderer =  (DefaultListCellRenderer)list.getCellRenderer();
@@ -159,7 +149,8 @@ public class MenuFrame extends JFrame{
         list.setModel(model);
 
 
-        listScroller.setBounds(225, 100, 150, 200);
+        listScroller.setBounds(225, 100, 150, 203);
+        listScroller.setBorder(BorderFactory.createEmptyBorder());
         mainPanel.add(listScroller);
 
         labelMenu = new JLabel("Menu");
@@ -173,8 +164,8 @@ public class MenuFrame extends JFrame{
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 Dimension size = getSize();
-                if(background == null)
-                   return;
+               // if(background == null)
+                 //  return;
                 g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
             }
         };
