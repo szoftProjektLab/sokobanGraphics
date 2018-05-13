@@ -1,5 +1,7 @@
 package display;
 import game.Game;
+import oracle.jrockit.jfr.JFR;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -116,6 +118,8 @@ public class MenuFrame extends JFrame{
         btnStart.setBounds(309, 312, 66, 23);
         mainPanel.add(btnStart);
 
+
+        JFrame t = this;
         btnStart.setActionCommand("btnStart");
         btnStart.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -124,6 +128,7 @@ public class MenuFrame extends JFrame{
                     setVisible(false);
                     g.StartGame("Maps/"+globalVariable+".txt");
                     activeGameFrame = new GameFrame();
+                    activeGameFrame.setMenuFrame(t);
                     activeGameFrame.setVisible(true);
                     Game.getInstance().getRunning().DrawMap();
                 }

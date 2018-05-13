@@ -66,6 +66,12 @@ public class GameFrame extends JFrame {
      */
     private JLabel labelPlayer2;
 
+    private JFrame menuFrame;
+
+    public void setMenuFrame(JFrame mf){
+        menuFrame =mf;
+    }
+
     /**
      * Képbetöltéshez felhasznált metódus
      * @return betöltött kép
@@ -254,6 +260,8 @@ public class GameFrame extends JFrame {
                         public void actionPerformed(ActionEvent e) {
                             if (e.getActionCommand().equals("bbacktomenu")) {
                                 setVisible(false);
+                                menuFrame.setVisible(true);
+                                Game.getInstance().setEndGame(false);
                                 dispose();
                             }
                         }

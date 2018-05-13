@@ -242,4 +242,8 @@ public class Game {
     public boolean getEndGame(){
         return endgame;
     }
+
+    public void setEndGame(boolean b){
+        endgame=b;
+    }
 }
