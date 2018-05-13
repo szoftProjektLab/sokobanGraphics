@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.DefaultListCellRenderer;
 import java.awt.event.ActionListener;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -26,42 +27,59 @@ public class MenuFrame extends JFrame{
      * Kép betöltésére használt string változó
      */
     private String globalVariable = null;
+
     /**
      * Háttérképet tároló BufferedImage
      */
     private BufferedImage background = null;
+
+
+
+    BufferedImage defaultbackground = null;
+
+
+
+
     /**
      *  Aktív játék ablakra referencia
      */
     private static GameFrame activeGameFrame;
+
     /**
      * Fő JPanel, amin a JList, és a háttérkép panele, egy JLabel illetve gombok vannak
      */
     private JPanel mainPanel;
+
     /**
      * Háttérkép JPanel-ja, ahova a háttérkép kerül
      */
     private JPanel backgroundPanel;
+
     /**
      * Lista, amiből a pályákat lehet kiválasztani
      */
     private JList<String> list;
+
     /**
      * Default model Listához felhasználva
      */
     private DefaultListModel<String> model;
+
     /**
      * Görgethetőséget megvalósító JScrollPane
      */
     private JScrollPane listScroller;
+
     /**
      * Szöveget kiíró JLabel
      */
     private JLabel labelMenu;
+
     /**
      * Start gomb
      */
     private JButton btnStart;
+
     /**
      * Exit gomb
      */
@@ -80,6 +98,17 @@ public class MenuFrame extends JFrame{
 
         mainPanel = new JPanel(null);
         getContentPane().add(mainPanel);
+
+
+        try {
+            defaultbackground = ImageIO.read(new File("textures/menubackground.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
 
         btnExit = new JButton();
         btnExit.setText("Exit");
@@ -114,7 +143,11 @@ public class MenuFrame extends JFrame{
         });
 
         list = new JList<String>();
+        list.setFont(new Font("Arial",Font.BOLD,18));
+        list.setFixedCellHeight(40);
         list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        DefaultListCellRenderer renderer =  (DefaultListCellRenderer)list.getCellRenderer();
+        renderer.setHorizontalAlignment(JLabel.CENTER);
         list.setVisibleRowCount(-1);
 
         listScroller = new JScrollPane(list);
@@ -130,8 +163,9 @@ public class MenuFrame extends JFrame{
         mainPanel.add(listScroller);
 
         labelMenu = new JLabel("Menu");
-        labelMenu.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-        labelMenu.setBounds(275, 65, 66, 30);
+        labelMenu.setFont(new Font("Arial Black", Font.BOLD, 26));
+        labelMenu.setForeground(Color.WHITE);
+        labelMenu.setBounds(260, 65, 86, 30);
         mainPanel.add(labelMenu);
 
         backgroundPanel = new JPanel() {
@@ -140,8 +174,7 @@ public class MenuFrame extends JFrame{
                 super.paintComponent(g);
                 Dimension size = getSize();
                 if(background == null)
-                    return;
-
+                   return;
                 g.drawImage(background, 0, 0,size.width, size.height,0, 0, background.getWidth(), background.getHeight(), null);
             }
         };
@@ -149,6 +182,7 @@ public class MenuFrame extends JFrame{
         backgroundPanel.setBounds(0, 0, 594, 471);
         mainPanel.add(backgroundPanel);
         backgroundPanel.setLayout(new BorderLayout(0, 0));
+
 
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
