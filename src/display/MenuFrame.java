@@ -18,8 +18,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.JLabel;
 import javax.swing.BorderFactory;
-import javax.swing.border.*;
-import javax.swing.plaf.basic.BasicBorders;
 import java.awt.event.ActionEvent;
 
 public class MenuFrame extends JFrame{
@@ -118,10 +116,10 @@ public class MenuFrame extends JFrame{
         btnStart.setBounds(309, 312, 66, 23);
         mainPanel.add(btnStart);
 
-        btnStart.setActionCommand("btnRemove");
+        btnStart.setActionCommand("btnStart");
         btnStart.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (e.getActionCommand().equals("btnRemove")) {
+                if (e.getActionCommand().equals("btnStart")) {
                     Game g = Game.getInstance();
                     setVisible(false);
                     g.StartGame("Maps/"+globalVariable+".txt");
