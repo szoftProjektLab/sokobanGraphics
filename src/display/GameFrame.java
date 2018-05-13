@@ -3,6 +3,8 @@ import enums.Direction;
 import game.Game;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
@@ -233,7 +235,7 @@ public class GameFrame extends JFrame {
                     endLabel.setForeground(Color.WHITE);
                     endLabel.setVerticalAlignment(SwingConstants.CENTER);
                     endLabel.setHorizontalAlignment(SwingConstants.CENTER);
-                    endLabel.setBounds(140, 300, 500, 70);
+                    endLabel.setBounds(140, 200, 500, 70);
 
                     if(winnerId==0)
                         endLabel.setText("It's a draw!");
@@ -241,6 +243,36 @@ public class GameFrame extends JFrame {
                         endLabel.setText("Player "+winnerId+" wins!");
 
                     labelGame.add(endLabel);
+
+
+                    JButton bbacktomenu = new JButton("Menu");
+                    bbacktomenu.setFont(new Font("Arial", Font.BOLD, 16));
+                    bbacktomenu.setBounds(190, 500, 130, 40);
+
+                    bbacktomenu.setActionCommand("bbacktomenu");
+                    bbacktomenu.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            if (e.getActionCommand().equals("bbacktomenu")) {
+                                setVisible(false);
+                                dispose();
+                            }
+                        }
+                    });
+
+                    labelGame.add(bbacktomenu);
+
+                    JButton bexit = new JButton("Exit");
+                    bexit.setFont(new Font("Arial", Font.BOLD, 16));
+                    bexit.setBounds(455, 500, 130, 40);
+
+                    bexit.setActionCommand("bexit");
+                    bexit.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            if (e.getActionCommand().equals("bexit"))
+                                System.exit(0);
+                        }
+                    });
+                    labelGame.add(bexit);
                 }
 
                 //////////////////////////////////////////////////////////////////////
