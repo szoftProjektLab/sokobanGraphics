@@ -48,7 +48,11 @@ public class Wall extends Field implements IDrawable {
         p.SetField(this);
         return Interact(p);
     }
-
+    /**
+     * Box-ot hozzáadó metódus
+     * @param b A csatolandó Box(Thing)
+     * @return  Interakció értéke
+     */
     public int Add(Box b){ return 0;}
 
     /**

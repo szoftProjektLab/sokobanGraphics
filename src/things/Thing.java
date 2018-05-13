@@ -12,9 +12,19 @@ import game.Warehouse;
  */
 public abstract class Thing  implements IDrawable {
 
+    /**
+     * Az aktuális raktár
+     */
     Warehouse warehouse;
+    /**
+     * Az aktuális mező
+     */
     Steppable field;
 
+    /**
+     * Beálíltjuk az aktuális raktárat
+     * @param w Raktár
+     */
     public void setWarehouse(Warehouse w){
         warehouse = w;
     }
@@ -77,7 +87,6 @@ public abstract class Thing  implements IDrawable {
      * @param x sor
      * @param y oszlop
      */
-
     @Override
     public void Draw(int x, int y) {}
 }

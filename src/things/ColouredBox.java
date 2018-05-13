@@ -10,6 +10,9 @@ import fields.Field;
  */
 public class ColouredBox extends Box implements IDrawable {
 
+    /**
+     * Színe a ládának
+     */
     private Colours colour;
     /**
      * Ha Hole-ra lép, ez meghívódik és megsemmisül a ColouredBox,

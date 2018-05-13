@@ -106,10 +106,6 @@ public class Warehouse {
         return fields[row][column].getThing();
     }
 
-    public void setPlayerCount(int szam){
-        playerCount = szam;
-    }
-
     /**
      * Beállítja a dobozok számát
      * @param szam szám
@@ -159,6 +155,9 @@ public class Warehouse {
         return playerCount;
     }
 
+    /**
+     *
+     */
     public void DrawMap(){
         String path="textures/oil.png";
         String path1="textures/honey.png";

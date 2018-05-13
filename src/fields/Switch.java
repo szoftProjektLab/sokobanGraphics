@@ -31,12 +31,6 @@ public class Switch extends Field implements IDrawable {
         active = false;
     }
 
-    public void Remove(ColouredBox b) {
-        SetThing(null);
-        hole.SetOpen(false);
-        active = false;
-    }
-
     /**
      * A kapcsolóra érkező Box meghívja, kinyitja a hozzá tartozó lyukat.
      * @param b A rálépő Box
@@ -49,6 +43,11 @@ public class Switch extends Field implements IDrawable {
         }
         return 0;
     }
+    /**
+     * A kapcsolóra érkező ColouredBox meghívja, kinyitja a hozzá tartozó lyukat.
+     * @param b A rálépő ColouredBox
+     * @return 0
+     */
    public int Interact(ColouredBox b) {
         if(hole!=null) {
             hole.SetOpen(true);

@@ -40,8 +40,6 @@ public class Game {
     public void StartGame(String file){
         String line = null;
         running = new Warehouse();
-        //int playercount=0;
-
 
         try {
             // BufferedReader-be csomagolt FileReader, ami alapján a raktárat, és azoknak az entitásait felépítjük

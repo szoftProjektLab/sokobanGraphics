@@ -89,6 +89,11 @@ public class Field extends Steppable implements IDrawable {
     public void setEffect(double effect) {
         this.effect = effect;
     }
+
+    /**
+     * Visszaadja a mezőn adott effektet
+     * @return Effekt
+     */
     public double getEffect() {
         return this.effect;
     }
