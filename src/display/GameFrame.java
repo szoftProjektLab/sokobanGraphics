@@ -13,11 +13,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
+
 import game.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 
 /**
  * Játékot megvalósító ablak
@@ -226,18 +225,22 @@ public class GameFrame extends JFrame {
                 //////////////////////////////////////////////////////////////////////
 
                 if (Game.getInstance().getEndGame()){
+
+                    labelGame.setLayout(null);
                     int winnerId=Game.getInstance().getRunning().getWinnerId();
                     JLabel endLabel = new JLabel();
+                    endLabel.setFont(new Font("Arial Black", Font.BOLD, 50));
+                    endLabel.setForeground(Color.WHITE);
+                    endLabel.setVerticalAlignment(SwingConstants.CENTER);
+                    endLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                    endLabel.setBounds(140, 300, 500, 70);
+
                     if(winnerId==0)
                         endLabel.setText("It's a draw!");
                     else
                         endLabel.setText("Player "+winnerId+" wins!");
 
-                    endLabel.setFont(new Font("Arial Black", Font.BOLD, 50));
-                    endLabel.setForeground(Color.WHITE);
-                    endLabel.setBounds(60, 65, 86, 30);
                     labelGame.add(endLabel);
-
                 }
 
                 //////////////////////////////////////////////////////////////////////

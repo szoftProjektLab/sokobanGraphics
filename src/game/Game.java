@@ -236,7 +236,6 @@ public class Game {
     private boolean endgame=false;
 
     public void EndGame(){
-        System.out.println("A játék véget ért!");
         endgame=true;
     }
 
