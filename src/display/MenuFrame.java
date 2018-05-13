@@ -18,6 +18,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.JLabel;
 import javax.swing.BorderFactory;
+import javax.swing.border.*;
+import javax.swing.plaf.basic.BasicBorders;
 import java.awt.event.ActionEvent;
 
 public class MenuFrame extends JFrame{
@@ -91,14 +93,12 @@ public class MenuFrame extends JFrame{
         mainPanel = new JPanel(null);
         getContentPane().add(mainPanel);
 
-
+        /* Default menü háttér ameddig nem választunk ki egy pályát a listából*/
         try {
             background = ImageIO.read(new File("textures/menubackground.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
 
         btnExit = new JButton();
         btnExit.setText("Exit");
@@ -140,8 +140,13 @@ public class MenuFrame extends JFrame{
         renderer.setHorizontalAlignment(JLabel.CENTER);
         list.setVisibleRowCount(-1);
 
+
+
         listScroller = new JScrollPane(list);
         listScroller.setPreferredSize(new Dimension(250, 80));
+
+        listScroller.getViewport().getView().setBackground(new Color(151,205,255));
+        listScroller.getViewport().getView().setForeground(Color.BLACK);
 
         model = new DefaultListModel<>();
         for (int i = 1; i < 6; i++)
@@ -149,8 +154,9 @@ public class MenuFrame extends JFrame{
         list.setModel(model);
 
 
-        listScroller.setBounds(225, 100, 150, 203);
+        listScroller.setBounds(225, 100, 150, 200);
         listScroller.setBorder(BorderFactory.createEmptyBorder());
+        listScroller.getViewport().setBackground(Color.RED);
         mainPanel.add(listScroller);
 
         labelMenu = new JLabel("Menu");
