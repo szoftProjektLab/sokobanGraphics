@@ -102,7 +102,6 @@ public class GameFrame extends JFrame {
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
 
-
         Warehouse wh = Game.getInstance().getRunning();
         thingTextures = new BufferedImage[wh.getRow()][wh.getColumn()];
         fieldTextures = new BufferedImage[wh.getRow()][wh.getColumn()];
@@ -127,10 +126,7 @@ public class GameFrame extends JFrame {
             @Override
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
-
                 Warehouse wh = Game.getInstance().getRunning();
-
-
 
                 BufferedImage oilTexture = fieldImages.get("O");
                 BufferedImage honeyTexture = fieldImages.get("HO");
@@ -154,9 +150,6 @@ public class GameFrame extends JFrame {
                                 g.drawImage(texture, (57*j)*getWidth()/574, (55*i)*getHeight()/539,(57*j+57)*getWidth()/574, (55*i+55)*getHeight()/539,0,0, 120, 120, null);
                             }
                         }
-
-
-
                     }
                 }
                 labelPlayer1.setText("P1 - "+Game.getInstance().getRunning().getPlayer(0).GetPoints());
@@ -177,7 +170,6 @@ public class GameFrame extends JFrame {
         globalVariable="textures/box.jpg";fieldImages.put("B", loadImage());
         globalVariable="textures/honey.png";fieldImages.put("HO", loadImage());
         globalVariable="textures/oil.png";fieldImages.put("O", loadImage());
-
         globalVariable=null;
 
         /**
@@ -229,9 +221,6 @@ public class GameFrame extends JFrame {
                         break;
                 }
 
-
-                //////////////////////////////////////////////////////////////////////
-
                 if (Game.getInstance().getEndGame()){
 
                     labelGame.setLayout(null);
@@ -247,9 +236,7 @@ public class GameFrame extends JFrame {
                         endLabel.setText("It's a draw!");
                     else
                         endLabel.setText("Player "+winnerId+" wins!");
-
                     labelGame.add(endLabel);
-
 
                     JButton bbacktomenu = new JButton("Menu");
                     bbacktomenu.setFont(new Font("Arial", Font.BOLD, 16));
@@ -282,8 +269,6 @@ public class GameFrame extends JFrame {
                     });
                     labelGame.add(bexit);
                 }
-
-                //////////////////////////////////////////////////////////////////////
 
                 wh.DrawMap();
                 doReinvalidateRepaint();

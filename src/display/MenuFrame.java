@@ -118,7 +118,6 @@ public class MenuFrame extends JFrame{
         btnStart.setBounds(309, 312, 66, 23);
         mainPanel.add(btnStart);
 
-
         JFrame t = this;
         btnStart.setActionCommand("btnStart");
         btnStart.addActionListener(new ActionListener() {
@@ -142,8 +141,6 @@ public class MenuFrame extends JFrame{
         DefaultListCellRenderer renderer =  (DefaultListCellRenderer)list.getCellRenderer();
         renderer.setHorizontalAlignment(JLabel.CENTER);
         list.setVisibleRowCount(-1);
-
-
 
         listScroller = new JScrollPane(list);
         listScroller.setPreferredSize(new Dimension(250, 80));
@@ -181,7 +178,6 @@ public class MenuFrame extends JFrame{
         backgroundPanel.setBounds(0, 0, 594, 471);
         mainPanel.add(backgroundPanel);
         backgroundPanel.setLayout(new BorderLayout(0, 0));
-
 
         list.addListSelectionListener(new ListSelectionListener() {
             @Override

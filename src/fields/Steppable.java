@@ -107,7 +107,6 @@ public abstract class Steppable {
      */
     public int Interact(Box b){ return 0; }
 
-
     /**
      * Itt nem csinál semmit,
      * a leszármazottak felülírják ha használni akarják
@@ -115,8 +114,6 @@ public abstract class Steppable {
      * @return 0
      */
     public int Interact(ColouredBox cb){ return 0; }
-
-
 
     /**
      * Absztrakt
@@ -136,7 +133,6 @@ public abstract class Steppable {
      * @return tmp
      */
     public abstract int TryMove(Direction d, Thing t, double s);
-
 
     /**
      * Absztrakt

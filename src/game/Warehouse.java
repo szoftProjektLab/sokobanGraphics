@@ -143,6 +143,9 @@ public class Warehouse {
         }
     }
 
+    /**
+     * A nyertes játékos száma
+     */
     private int winnerId=0;
     /**
      *  Játékosok számát csökkentő függvény, véget vet a játéknak, ha egy feltétel teljesül
@@ -163,6 +166,10 @@ public class Warehouse {
         }
     }
 
+    /**
+     * A nyertes játékos számának getter függvénye
+     * @return nyertes játékos száma
+     */
     public int getWinnerId(){
         return winnerId;
     }
@@ -176,11 +183,9 @@ public class Warehouse {
     }
 
     /**
-     *
+     * A fieldeken álló / tartózkodó Thingeket rajzolja rájuk
      */
     public void DrawMap(){
-        String path="textures/oil.png";
-        String path1="textures/honey.png";
         for(int i=0;i<getRow();i++){
             for(int j=0;j<getColumn();j++){
                 fields[i][j].Draw(i,j);
