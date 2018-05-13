@@ -20,7 +20,7 @@ public class Player extends Thing implements IDrawable {
      */
     public Player(int id1) {
         points = 0;
-        strength = 3;
+        strength = 4;
         id = id1;
     }
 
@@ -81,7 +81,6 @@ public class Player extends Thing implements IDrawable {
         if(! (tmp instanceof Wall)) {
             p = tmp.TryMove(d, this, strength);
             points += p;
-            System.out.println(p);
         }
     }
 

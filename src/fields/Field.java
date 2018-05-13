@@ -52,7 +52,7 @@ public class Field extends Steppable implements IDrawable {
      * @return tmp
      */
     public int TryMove(Direction d, double s){
-        return neighbours.get(d).TryMove(d, getThing(), effect);
+        return neighbours.get(d).TryMove(d, getThing(), s);
     }
 
     /**
