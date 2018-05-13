@@ -5,6 +5,7 @@ import display.MenuFrame;
 import enums.Direction;
 import fields.Field;
 import fields.Wall;
+import game.Game;
 
 /**
  * Játékost megvalósító osztály
@@ -35,6 +36,7 @@ public class Player extends Thing implements IDrawable {
      */
     public void AddPoints(int points){
         this.points += points;
+        Game.getInstance().getRunning().checkCB();
     }
 
     /**

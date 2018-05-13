@@ -127,10 +127,14 @@ public class Warehouse {
      */
     public void CBDecrease() {
         colouredBoxCount--;
+
+    }
+
+    public void checkCB(){
         if (colouredBoxCount==0) {
-             // Játék referencia lekérdezése
+            // Játék referencia lekérdezése
             Game game = Game.getInstance();
-             // Véget ér a játék, meghívjuk a singleton Game osztálynak a függvényét
+            // Véget ér a játék, meghívjuk a singleton Game osztálynak a függvényét
             game.EndGame();
 
             if (players[0].GetPoints()>players[1].GetPoints()){
