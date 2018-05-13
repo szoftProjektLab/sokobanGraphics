@@ -1,7 +1,6 @@
 package display;
-import game.Game;
-import oracle.jrockit.jfr.JFR;
 
+import game.Game;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
