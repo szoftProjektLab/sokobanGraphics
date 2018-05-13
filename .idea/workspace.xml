@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1c1c32e6-897b-493c-9212-3ce8d75c85a9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/display/GameFrame.java" afterPath="$PROJECT_DIR$/src/display/GameFrame.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -696,11 +695,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526226217400</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="befalazós endgame">
+      <created>1526229001595</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1526229001595</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42932000" />
+    <option name="totallyTimeSpent" value="42955000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -812,7 +818,8 @@
     <MESSAGE value="WASD, Arrow mozgások" />
     <MESSAGE value="DrawMap: nincs fájl művelet, képek hashmap-ből" />
     <MESSAGE value="Félkész endgame overlay" />
-    <option name="LAST_COMMIT_MESSAGE" value="Félkész endgame overlay" />
+    <MESSAGE value="befalazós endgame" />
+    <option name="LAST_COMMIT_MESSAGE" value="befalazós endgame" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
